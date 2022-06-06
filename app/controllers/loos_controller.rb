@@ -1,0 +1,2 @@
+class LoosController < ApplicationController
+end

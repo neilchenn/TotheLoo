@@ -1,6 +1,20 @@
 class LoosController < ApplicationController
   def index
     @loos = Loo.all
+    # @loos = policy_scope(Loo)
+
+    if params[:query].present?
+      @loos = Loo.geocoded.search_by_loo_fields(params[:query])
+    else
+      @loos = Loo.geocoded
+    end
+    @markers = @loos.map do |loo| {
+      lat: loo.latitude,
+      lng: loo.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { loo: loo }), # can someone explain this line
+      image_url: helpers.asset_url("loo.png")
+    }
+    end
   end
 
   def show

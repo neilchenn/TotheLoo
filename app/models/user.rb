@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :loos
   has_many :reviews, dependent: :destroy
+  acts_as_favoritor
 end

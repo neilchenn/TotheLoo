@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+      <h1>Loo #<%= @loo.name %></h1>
+    </div>
+  </div>
+</div>
+
+ <%# // RATING CONTAINER - flex to be added later // %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 p-5">
+      <%= simple_form_for [@loo, @review] do |f| %>
+        <h2>Review this loo!</h2>
+        <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
+        <i class="fas fa-heart position-icon text-primary ms-1"></i>
+        <i class="fas fa-solid fa-toilet position-icon text-primary ms-1"></i>
+
+          <div data-controller="display-range-value">
+            <%= f.input :cleanliness, label: "cleanlines🧻", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"5", step:"0.5" } %>
+            <p data-display-range-value-target="rangeCounter">/5</p>
+          </div>
+
+          <div data-controller="display-range-value">
+            <%= f.input :flushing_power, label: "Flushing power💪", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"5", step:"0.5" } %>
+            <p data-display-range-value-target="rangeCounter"></p>
+          </div>
+
+          <div data-controller="display-range-value">
+            <%= f.input :ambience, label: "Ambience💃", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"5", step:"0.5" } %>
+            <p data-display-range-value-target="rangeCounter"></p>
+          </div>
+            <i class="fa fa-solid fa-toilet-paper-blank position-icon text-primary ms-1"></i>
+          <div data-controller="display-range-value">
+            <%= f.input :toilet_paper_soap, label: "Toilet paper🧻 and soap🧴", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"5", step:"0.5" } %>
+            <p data-display-range-value-target="rangeCounter"></p>
+          </div>
+          <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

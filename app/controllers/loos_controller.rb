@@ -19,6 +19,8 @@ class LoosController < ApplicationController
 
   def show
     @loo = Loo.find(params[:id])
+    @review = Review.new
+    @reviews = @loo.reviews
   end
 
   def new

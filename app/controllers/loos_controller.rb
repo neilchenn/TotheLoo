@@ -21,7 +21,7 @@ class LoosController < ApplicationController
   end
 
   def edit
-    @loos = Loo.find(params[:id])
+    @loo = Loo.find(params[:id])
   end
 
   def update
@@ -35,8 +35,20 @@ class LoosController < ApplicationController
   end
 
   def favourite
+    @loo = Loo.find(params[:id])
+    current_user.favourite(@loo)
   end
 
   def unfavourite
+    @loo = Loo.find(params[:id])
+    current_user.unfavourite(@loo)
+  end
+
+  private
+
+  def loo_params
+    params.require(:loo).permit(:facility_type, :name, :address, :latitude,
+                                :longitude, :parking, :accessible, :baby_change,
+                                :male, :female, :unisex, :opening_hours, :user_id)
   end
 end

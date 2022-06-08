@@ -4,7 +4,6 @@ const hideLoadingScreen = () => {
 }
 
 const initHideLoadingScreen = (event) => {
-
   const isRootPath = window.location.pathname === '/'
   if (isRootPath) {
     // initial page load

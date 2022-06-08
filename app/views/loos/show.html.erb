@@ -1,15 +1,16 @@
 <div class="container", style="position: relative">
   <div class="row">
     <div class="col-12 pt-4 pb-4">
-      <h1>Loo #<%= @loo.name %></h1>
+      <h2>Loo #<%= @loo.name %></h2>
     </div>
   </div>
 
 <%# // RATING CONTAINER // %>
   <div class="row border-bottom">
     <div class="col-12 pt-4 pb-4">
-      <h2>Rating</h2>
+      <h4>rating</h4>
       <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
+      <p> 1 2 3 hello hello </p>
       <i class="fas fa-heart position-icon text-primary ms-1"></i>
     </div>
   </div>
@@ -17,7 +18,8 @@
   <%# // FACILITIES CONTAINER // %>
   <div class="row border-bottom">
     <div class="col-12 pt-4 pb-4">
-      <h2>Facilities</h2>
+      <h4>facilities</h4>
+      <p> 1 2 3 hello hello </p>
       <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
       <i class="fas fa-heart position-icon text-primary ms-1"></i>
     </div>
@@ -26,7 +28,7 @@
 <%# // OPENING HOURS CONTAINER // %>
   <div class="row border-bottom">
     <div class="col-12 pt-4 pb-4">
-      <h2>Opening hours</h2>
+      <h4>opening hours</h4>
       <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
       <%= @loo.opening_hours %>
     </div>
@@ -79,5 +81,5 @@
 <%# // Button to toilet route to be updated //  %>
 
 
-<%= link_to "TotheLOO!!", loos_path, class: "col-12 mx-auto btn btn-primary", style: "position: absolute; bottom: 0px" %>
+<%= link_to "to the LOO!", loos_path, class: "col-12 mx-auto btn btn-primary text-warning", style: "position: absolute; bottom: 0px" %>
 </div>

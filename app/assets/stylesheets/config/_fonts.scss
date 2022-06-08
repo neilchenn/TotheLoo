@@ -1,16 +1,31 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap'); // Passion_One //
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); // Luckiest_Guy //
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Outfit:wght@300&display=swap'); // Outfit //
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap'); // Fredoka_One //
+
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Outfit", "sans-serif";
+$headers-font: 'Passion One', "cursive";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "French font";
+  src: font-url('fengardoneue_regular-webfont.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "French font";
+  src: font-url('fengardoneue_black-webfont.woff');
+  font-weight: 800;
+  font-style: normal;
+}
+$button-font: "French font";
+
+// Google fonts - Suggestions //
+// font-family: 'Luckiest Guy', cursive;
+// font-family: 'Fredoka One', cursive;

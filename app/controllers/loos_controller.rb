@@ -21,7 +21,11 @@ class LoosController < ApplicationController
 
   def show
     @loo = Loo.find(params[:id])
-    @reviews = @loo.reviews
+    fetch_average_reviews(@loo)
+  end
+
+  def fetch_average_reviews(loo)
+    @reviews = loo.reviews
     @average_cleanliness_rating = 0
     @average_flushing_power_rating = 0
     @average_ambience_rating = 0

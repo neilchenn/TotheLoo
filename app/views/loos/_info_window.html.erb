@@ -1,7 +1,52 @@
 <h2><%= loo.name %></h2>
 <p><%= loo.address %></p>
+
+
+<p>Facilities:
+ <% if loo.parking %>
+<i class="fas fa-parking ms-1"></i>
+<% end %>
+
+
+ <% if loo.accessible %>
+<i class="fas fa-wheelchair ms-1"></i>
+<% end %>
+
+
+ <% if loo.baby_change %>
+<i class="fas fa-baby ms-1"></i>
+<% end %>
+
+
+ <% if loo.male %>
+<i class="fas fa-male ms-1"></i>
+<% end %>
+
+
+ <% if loo.female %>
+<i class="fas fa-female ms-1"></i>
+<% end %>
+
+
+<% if loo.unisex %>
+<i class="fas fa-restroom ms-1"></i>
+<% end %>
+</p>
+
+
+
 <p>TODO: Distance from me: xxx meters</p>
-<p>TODO: Average rating: 5 stars</p>
+<p>TODO: Average rating: using bar</p>
 <p>TODO: how to make it clickable on card</p>
 <p>TODO: Add star to make favourite loo</p>
+
+
+
+
+
+
+
+
+
+
 <%= link_to 'Learn more', loo_path(loo), class: "btn btn-primary" %>

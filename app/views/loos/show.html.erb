@@ -6,7 +6,17 @@
         <h1 style="margin-bottom: 0"><%= @loo.name %></h1>
         <p><%= @loo.address %><p>
       </div>
-    </div>
+        <div class="d-flex flex-column">
+          <div class="category-card">
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded" style="width:100%; height:15px">
+              <div class="c-score-bar-value rounded" style="width:<%= @average_star_rating * 20 %>% ; height:15px"></div>
+              </div>
+              <p class="ms-2"><%= @average_star_rating %></p>
+            </div>
+          </div>
+         </div>
+      </div>
     <%# // FACILITIES CONTAINER // %>
     <div class="row">
       <div class="col-12 pt-1 pb-1">
@@ -27,31 +37,32 @@
     </div>
   </div>
 
+
   <%# // RATING CONTAINER // %>
     <div class="rating-container">
       <div class="row">
         <div class="col-12">
-          <h4>overall rating</h4>
+          <h4>Ratings</h4>
           <div class="d-flex flex-column">
-            <div class="category-card">
-              <p>Cleanlines🧻</p>
-                <div class="d-flex align-items-center">
-                  <div class="c-score-bar rounded">
-                    <div class="c-score-bar-value rounded" style="width:<%= @average_cleanliness_rating * 20 %>%"></div>
-                  </div>
-                  <%= @average_cleanliness_rating %>
-                </div>
+    <div class="category-card">
+          <p>Cleanlines🧻</p>
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded">
+                <div class="c-score-bar-value rounded" style="width:<%= @average_cleanliness_rating * 20 %>%"></div>
               </div>
-              <div class="category-card">
-                <p>Flushing power💪</p>
-                <div class="d-flex align-items-center">
-                  <div class="c-score-bar rounded">
-                    <div class="c-score-bar-value rounded"
-                    style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
-                  </div>
-                  <%= @average_flushing_power_rating %>
-                </div>
+              <p class="ms-2"><%= @average_cleanliness_rating %></p>
+            </div>
+          </div>
+          <div class="category-card">
+            <p>Flushing power💪</p>
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded">
+                <div class="c-score-bar-value rounded"
+                 style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
               </div>
+              <p class="ms-2"><%= @average_flushing_power_rating %></p>
+            </div>
+          </div>
                 <div class="category-card">
                   <p>Ambience💃</p>
                   <div class="d-flex align-items-center">
@@ -70,6 +81,8 @@
                   <%= @average_toilet_paper_soap_rating %>
                 </div>
               </div>
+              <p class="ms-2"><%= @average_toilet_paper_soap_rating %></p>
+            </div>
           </div>
         </div>
       </div>

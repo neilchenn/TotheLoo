@@ -4,7 +4,6 @@ class LoosController < ApplicationController
 
   def index
     @loos = Loo.all
-    # @loos = policy_scope(Loo)
 
     if params[:query].present?
       @loos = Loo.geocoded.search_by_loo_fields(params[:query])

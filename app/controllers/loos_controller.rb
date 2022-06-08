@@ -19,8 +19,25 @@ class LoosController < ApplicationController
 
   def show
     @loo = Loo.find(params[:id])
-    @review = Review.new
     @reviews = @loo.reviews
+    @average_cleanliness_rating = 0
+    @average_flushing_power_rating = 0
+    @average_ambience_rating = 0
+    @average_toilet_paper_soap_rating = 0
+    @average_star_rating = 0
+    unless @reviews.blank?
+      @reviews.each do |review|
+        @average_cleanliness_rating += review.cleanliness
+        @average_flushing_power_rating += review.flushing_power
+        @average_ambience_rating += review.ambience
+        @average_toilet_paper_soap_rating += review.toilet_paper_soap
+      end
+      @average_cleanliness_rating = (@average_cleanliness_rating / @reviews.count).round(1)
+      @average_flushing_power_rating = (@average_flushing_power_rating / @reviews.count).round(1)
+      @average_ambience_rating = (@average_ambience_rating / @reviews.count).round(1)
+      @average_toilet_paper_soap_rating = (@average_toilet_paper_soap_rating / @reviews.count).round(1)
+      @average_star_rating = ((@average_cleanliness_rating + @average_flushing_power_rating + @average_ambience_rating + @average_toilet_paper_soap_rating)/4).round(1)
+    end
   end
 
   def new

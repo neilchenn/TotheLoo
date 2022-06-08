@@ -1,0 +1,16 @@
+.category-card {
+  width: 100%px;
+  height: 60px;
+  p {
+    margin-bottom: 0;
+  }
+}
+.c-score-bar {
+  width: 65%;
+  height: 12px;
+  background-color: $primary;
+}
+.c-score-bar-value {
+  height: 12px;
+  background-color: $secondary;
+}

@@ -1,5 +1,6 @@
 class LoosController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :show_navbar!, only: :index
 
   def index
     @loos = Loo.all

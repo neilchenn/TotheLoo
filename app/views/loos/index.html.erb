@@ -1,6 +1,6 @@
 <%# Mapbox map display %>
 <div class="container">
-  <%= form_tag loos_path, method: :get, class: "my-1" do %>
+  <%= form_tag loos_path, method: :get, data: {turbolinks: true}, class: "my-1" do %>
     <div class="d-flex">
       <%= text_field_tag :query,
         params[:query],

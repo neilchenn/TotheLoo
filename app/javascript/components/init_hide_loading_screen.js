@@ -4,9 +4,9 @@ const hideLoadingScreen = () => {
 }
 
 const initHideLoadingScreen = (event) => {
-  if ((!event.data.timing.visitStart)) {
+  if (!event.data.timing.visitStart) {
     // initial page load
-    setTimeout(hideLoadingScreen, 4000)
+    setTimeout(hideLoadingScreen, 2000)
   } else {
     hideLoadingScreen()
   }

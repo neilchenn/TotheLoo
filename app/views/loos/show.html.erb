@@ -32,6 +32,50 @@
     </div>
   </div>
 
+  <div class="row border-bottom my-4">
+    <div class="col-12">
+      <h2>Categories</h2>
+      <div class="d-flex flex-column">
+        <div class="category-card">
+          <p>Cleanlines🧻</p>
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded">
+                <div class="c-score-bar-value rounded" style="width:<%= @average_cleanliness_rating * 20 %>%"></div>
+              </div>
+              <%= @average_cleanliness_rating %>
+            </div>
+          </div>
+          <div class="category-card">
+            <p>Flushing power💪</p>
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded">
+                <div class="c-score-bar-value rounded"
+                 style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
+              </div>
+              <%= @average_flushing_power_rating %>
+            </div>
+          </div>
+            <div class="category-card">
+              <p>Ambience💃</p>
+              <div class="d-flex align-items-center">
+                <div class="c-score-bar rounded">
+                  <div class="c-score-bar-value rounded" style="width:<%= @average_ambience_rating * 20 %>%"></div>
+                </div>
+                <%= @average_ambience_rating %>
+              </div>
+            </div>
+           <div class="category-card">
+            <p>Toiler paper🧻 and soap🧴</p>
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded">
+                <div class="c-score-bar-value rounded" style="width:<%= @average_toilet_paper_soap_rating * 20 %>%"></div>
+              </div>
+              <%= @average_toilet_paper_soap_rating %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 <%# // Button to toilet route to be updated //  %>
 
 

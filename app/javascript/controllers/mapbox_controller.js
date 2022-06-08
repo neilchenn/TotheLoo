@@ -15,8 +15,32 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/streets-v11",
+      // center: [-37.8, 144.9],
+      // zoom: 3
     })
+
+    // const map = new mapboxgl.Map({
+    //   container: 'map', // container ID
+    //   style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    //   center: [-96, 37.8], // starting position
+    //   zoom: 3 // starting zoom
+    //   });
+
+      // Add geolocate control to the map.
+      this.map.addControl(
+        new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+        })
+      );
+
+
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
     // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
@@ -50,6 +74,9 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: {top: 10, bottom:25, left: 15, right: 5}
+      , maxZoom: 15, duration: 0 })
   }
+
+
 }

@@ -4,7 +4,9 @@ const hideLoadingScreen = () => {
 }
 
 const initHideLoadingScreen = (event) => {
-  if (!event.data.timing.visitStart) {
+
+  const isRootPath = window.location.pathname === '/'
+  if (isRootPath) {
     // initial page load
     setTimeout(hideLoadingScreen, 2000)
   } else {

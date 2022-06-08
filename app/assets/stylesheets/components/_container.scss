@@ -1,6 +1,15 @@
 .container {
-  width: 300px;
-  height: 600px;
-  margin-bottom: 50px;
+  width: auto;
+  height: 700px;
+  padding-top: 10px;
 
+}
+
+// show page rating container //
+.rating-container {
+  width: auto;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
 }

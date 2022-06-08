@@ -23,5 +23,5 @@ import { hide } from "@popperjs/core"
 import { initHideLoadingScreen } from "../components/init_hide_loading_screen"
 
 document.addEventListener('turbolinks:load', (event) => {
-  // initHideLoadingScreen(event)  make sure to uncomment this !!!!
+  initHideLoadingScreen(event)
 })

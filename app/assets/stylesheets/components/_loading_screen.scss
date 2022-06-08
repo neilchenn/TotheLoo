@@ -1,0 +1,22 @@
+.loading-screen {
+  width:100vw;
+  height:100vh;
+  position:fixed;
+  top:0px;
+  left:0px;
+  z-index: 1000;
+  background: #cf83A6;
+  display: none;
+
+  .loading-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+}
+
+.loading-screen.active {
+  display: block;
+}

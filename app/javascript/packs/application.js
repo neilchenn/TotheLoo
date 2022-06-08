@@ -12,5 +12,16 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+// Stimulus controller imports
 import "controllers"
+
+// external imports
 import "bootstrap"
+import { hide } from "@popperjs/core"
+
+// local imports
+import { initHideLoadingScreen } from "../components/init_hide_loading_screen"
+
+document.addEventListener('turbolinks:load', (event) => {
+  initHideLoadingScreen(event)
+})

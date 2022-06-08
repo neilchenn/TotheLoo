@@ -1,4 +1,6 @@
 class LoosController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @loos = Loo.all
     # @loos = policy_scope(Loo)

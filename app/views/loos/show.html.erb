@@ -1,85 +1,79 @@
 <div class="container", style="position: relative">
-  <div class="row">
-    <div class="col-12 pt-4 pb-4">
-      <h2>Loo #<%= @loo.name %></h2>
-    </div>
-  </div>
 
-<%# // RATING CONTAINER // %>
-  <div class="row border-bottom">
-    <div class="col-12 pt-4 pb-4">
-      <h4>rating</h4>
-      <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
-      <p> 1 2 3 hello hello </p>
-      <i class="fas fa-heart position-icon text-primary ms-1"></i>
+  <div class="rating-container">
+    <div class="row">
+      <div class="col-12 pt-2">
+        <h1 style="margin-bottom: 0"><%= @loo.name %></h1>
+        <p><%= @loo.address %><p>
+      </div>
     </div>
-  </div>
-
-  <%# // FACILITIES CONTAINER // %>
-  <div class="row border-bottom">
-    <div class="col-12 pt-4 pb-4">
-      <h4>facilities</h4>
-      <p> 1 2 3 hello hello </p>
-      <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
-      <i class="fas fa-heart position-icon text-primary ms-1"></i>
+    <%# // FACILITIES CONTAINER // %>
+    <div class="row">
+      <div class="col-12 pt-1 pb-1">
+        <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
+        <i class="fas fa-heart position-icon text-primary ms-1"></i>
+        <i class="fas fa-heart position-icon text-primary ms-1"></i>
+        <i class="fas fa-heart position-icon text-primary ms-1"></i>
+      </div>
     </div>
-  </div>
 
-<%# // OPENING HOURS CONTAINER // %>
-  <div class="row border-bottom">
-    <div class="col-12 pt-4 pb-4">
-      <h4>opening hours</h4>
-      <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
-      <%= @loo.opening_hours %>
-    </div>
-  </div>
-
-  <div class="row border-bottom my-4">
-    <div class="col-12">
-      <h2>Categories</h2>
-      <div class="d-flex flex-column">
-        <div class="category-card">
-          <p>Cleanlines🧻</p>
-            <div class="d-flex align-items-center">
-              <div class="c-score-bar rounded">
-                <div class="c-score-bar-value rounded" style="width:<%= @average_cleanliness_rating * 20 %>%"></div>
-              </div>
-              <%= @average_cleanliness_rating %>
-            </div>
-          </div>
-          <div class="category-card">
-            <p>Flushing power💪</p>
-            <div class="d-flex align-items-center">
-              <div class="c-score-bar rounded">
-                <div class="c-score-bar-value rounded"
-                 style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
-              </div>
-              <%= @average_flushing_power_rating %>
-            </div>
-          </div>
-            <div class="category-card">
-              <p>Ambience💃</p>
-              <div class="d-flex align-items-center">
-                <div class="c-score-bar rounded">
-                  <div class="c-score-bar-value rounded" style="width:<%= @average_ambience_rating * 20 %>%"></div>
-                </div>
-                <%= @average_ambience_rating %>
-              </div>
-            </div>
-           <div class="category-card">
-            <p>Toiler paper🧻 and soap🧴</p>
-            <div class="d-flex align-items-center">
-              <div class="c-score-bar rounded">
-                <div class="c-score-bar-value rounded" style="width:<%= @average_toilet_paper_soap_rating * 20 %>%"></div>
-              </div>
-              <%= @average_toilet_paper_soap_rating %>
-            </div>
-          </div>
+  <%# // OPENING HOURS CONTAINER // %>
+    <div class="row">
+      <div class="col-12 pt-2 pb-2">
+        <h4>opening hours</h4>
+        <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
+        <p><%= @loo.opening_hours %></p>
       </div>
     </div>
   </div>
-<%# // Button to toilet route to be updated //  %>
 
-
-<%= link_to "to the LOO!", loos_path, class: "col-12 mx-auto btn btn-primary text-warning", style: "position: absolute; bottom: 0px" %>
+  <%# // RATING CONTAINER // %>
+    <div class="rating-container">
+      <div class="row">
+        <div class="col-12">
+          <h4>overall rating</h4>
+          <div class="d-flex flex-column">
+            <div class="category-card">
+              <p>Cleanlines🧻</p>
+                <div class="d-flex align-items-center">
+                  <div class="c-score-bar rounded">
+                    <div class="c-score-bar-value rounded" style="width:<%= @average_cleanliness_rating * 20 %>%"></div>
+                  </div>
+                  <%= @average_cleanliness_rating %>
+                </div>
+              </div>
+              <div class="category-card">
+                <p>Flushing power💪</p>
+                <div class="d-flex align-items-center">
+                  <div class="c-score-bar rounded">
+                    <div class="c-score-bar-value rounded"
+                    style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
+                  </div>
+                  <%= @average_flushing_power_rating %>
+                </div>
+              </div>
+                <div class="category-card">
+                  <p>Ambience💃</p>
+                  <div class="d-flex align-items-center">
+                    <div class="c-score-bar rounded">
+                      <div class="c-score-bar-value rounded" style="width:<%= @average_ambience_rating * 20 %>%"></div>
+                    </div>
+                    <%= @average_ambience_rating %>
+                  </div>
+                </div>
+              <div class="category-card">
+                <p>Toiler paper🧻 and soap🧴</p>
+                <div class="d-flex align-items-center">
+                  <div class="c-score-bar rounded">
+                    <div class="c-score-bar-value rounded" style="width:<%= @average_toilet_paper_soap_rating * 20 %>%"></div>
+                  </div>
+                  <%= @average_toilet_paper_soap_rating %>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%# // Button to toilet route to be updated //  %>
+  <%= link_to "to the LOO!", loos_path, class: "col-12 mx-auto btn btn-primary text-warning", style: "position: absolute; bottom: 0px" %>
 </div>

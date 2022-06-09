@@ -32,7 +32,7 @@ export default class extends Controller {
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true,
         }),
-        'bottom-right',
+        "bottom-right"
       );
 
       // To get the current position
@@ -64,10 +64,10 @@ export default class extends Controller {
       customMarker.style.width = "25px"
       customMarker.style.height = "25px"
       customMarker.style.borderRadius = '25px'
-      customMarker.style.border = '1px solid pink'
+      customMarker.style.border = '2px solid white'
       customMarker.style.backgroundSize = '75% 75%';
       customMarker.style.backgroundPosition = 'center center';
-      customMarker.style.backgroundRepeat = ' no-repeat';
+      customMarker.style.backgroundRepeat = 'no-repeat';
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])

@@ -30,8 +30,6 @@ export default class extends Controller {
         trackUserLocation: true,
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true,
-
-
         }),
         'bottom-right',
       );
@@ -50,12 +48,13 @@ export default class extends Controller {
 
       // this.map.Geolocation.getCurrentPosition();
       this.directions = new MapboxDirections({
-                              accessToken: mapboxgl.accessToken
-                            })
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+      })
 
       this.map.addControl(
         this.directions,
-        'bottom-left'
+        'top-left'
       );
 
       this.map.on('load', () => {

@@ -71,16 +71,17 @@ class LoosController < ApplicationController
   end
 
   def navigation
+
   end
 
   def favourite
     @loo = Loo.find(params[:id])
-    current_user.favourite(@loo)
+    current_user.favorite @loo
   end
 
   def unfavourite
     @loo = Loo.find(params[:id])
-    current_user.unfavourite(@loo)
+    current_user.unfavorite @loo
   end
 
   private

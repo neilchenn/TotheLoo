@@ -1,6 +1,15 @@
 <div class="container", style="position: relative">
 
   <div class="rating-container">
+  <div class="d-flex justify-content-between">
+  <% unless @loo.favorited_by? current_user %>
+    <%= link_to "Favorite", favourite_loo_path, method: :post %>
+    <% else %>
+    <%= link_to "Unfavorite", unfavourite_loo_path, method: :delete %>
+    <% end %>
+    <%= link_to "new review, temp link", new_loo_review_path(@loo) %>
+    <%= link_to "X", root_path %>
+  </div>
     <div class="row">
       <div class="col-12 pt-2">
         <h1 style="margin-bottom: 0"><%= @loo.name %></h1>
@@ -69,7 +78,7 @@
                     <div class="c-score-bar rounded">
                       <div class="c-score-bar-value rounded" style="width:<%= @average_ambience_rating * 20 %>%"></div>
                     </div>
-                    <%= @average_ambience_rating %>
+                    <p class="ms-2"><%= @average_ambience_rating %></p>
                   </div>
                 </div>
               <div class="category-card">
@@ -78,15 +87,14 @@
                   <div class="c-score-bar rounded">
                     <div class="c-score-bar-value rounded" style="width:<%= @average_toilet_paper_soap_rating * 20 %>%"></div>
                   </div>
-                  <%= @average_toilet_paper_soap_rating %>
+                  <p class="ms-2"><%= @average_toilet_paper_soap_rating %></p>
                 </div>
               </div>
-              <p class="ms-2"><%= @average_toilet_paper_soap_rating %></p>
             </div>
           </div>
         </div>
       </div>
     </div>
   <%# // Button to toilet route to be updated //  %>
-  <%= link_to "to the LOO!", loos_path, class: "col-12 mx-auto btn btn-primary text-warning", style: "position: absolute; bottom: 0px" %>
+  <%= link_to "to the LOO!", navigation_loo_path(@loo), class: "col-12 mx-auto btn btn-primary text-warning", style: "position: absolute; bottom: 0px" %>
 </div>

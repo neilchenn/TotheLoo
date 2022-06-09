@@ -3,9 +3,9 @@
   <div class="rating-container">
   <div class="d-flex justify-content-between">
   <% unless @loo.favorited_by? current_user %>
-    <%= link_to "Favorite", favourite_loo_path, method: :post %>
+    <%= link_to "Favorite", favourite_loo_path, method: :post, remote: true %>
     <% else %>
-    <%= link_to "Unfavorite", unfavourite_loo_path, method: :delete %>
+    <%= link_to "Unfavorite", unfavourite_loo_path, method: :delete, remote: true %>
     <% end %>
     <%= link_to "new review, temp link", new_loo_review_path(@loo) %>
     <%= link_to "X", root_path %>
@@ -98,3 +98,9 @@
   <%# // Button to toilet route to be updated //  %>
   <%= link_to "to the LOO!", navigation_loo_path(@loo), class: "col-12 mx-auto btn btn-primary text-warning", style: "position: absolute; bottom: 0px" %>
 </div>
+
+
+favourite button - ajax? (YES- use remote true)
+schema adding a average_star_rating column to loo?
+refactoring show (array?)
+closest-toilet

@@ -1,6 +1,8 @@
 import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+
 
 
 
@@ -36,17 +38,31 @@ export default class extends Controller {
         // When active the map will receive updates to the device's location as it changes.
         trackUserLocation: true,
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
+        showUserHeading: true,
+
+
         }),
         'bottom-right',
       );
 
-      // this.map.addControl(
-      //   new MapboxDirections({
-      //     accessToken: mapboxgl.accessToken
-      //     }),
-      //     'top-left'
-      // );
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(position => {
+          console.log(position)
+          const startingLocationInput = document.querySelector('#mapbox-directions-origin-input input')
+          if (startingLocationInput) {
+            startingLocationInput.value = `${position.coords.latitude}, ${position.coords.longitude}`
+          }
+        })
+      }
+
+      // this.map.Geolocation.getCurrentPosition();
+
+      this.map.addControl(
+        new MapboxDirections({
+          accessToken: mapboxgl.accessToken
+          }),
+          'bottom-left'
+      );
 
 
 

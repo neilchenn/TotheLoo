@@ -21,7 +21,7 @@ class LoosController < ApplicationController
 
   def show
     @loo = Loo.find(params[:id])
-    fetch_average_reviews(@loo)
+    fetch_average_reviews(@loo) if @loo.reviews.present?
   end
 
   def fetch_average_reviews(loo)
@@ -75,12 +75,14 @@ class LoosController < ApplicationController
 
   def favourite
     @loo = Loo.find(params[:id])
-    current_user.favourite(@loo)
+    current_user.favorite(@loo)
+    redirect_back(fallback_location: loo_path(@loo))
   end
 
   def unfavourite
     @loo = Loo.find(params[:id])
-    current_user.unfavourite(@loo)
+    current_user.unfavorite(@loo)
+    redirect_back(fallback_location: loo_path(@loo))
   end
 
   private

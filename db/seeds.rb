@@ -38,3 +38,16 @@ data.each do |loo|
     user_id: User.first.id
   )
 end
+
+Loo.all.each do |loo|
+  User.all.each do |user|
+    review = Review.create!(
+                        user: user,
+                        loo: loo,
+                        cleanliness: rand(0..5),
+                        flushing_power: rand(0..5),
+                        ambience: rand(0..5),
+                        toilet_paper_soap: rand(0..5),
+                        star_rating: rand(0..5))
+  end
+end

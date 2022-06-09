@@ -1,5 +1,4 @@
 <div class="container", style="position: relative">
-
   <div class="rating-container">
     <div class="row">
       <div class="col-12 pt-2">
@@ -11,46 +10,45 @@
         <%# <% end %>
         <p><%= @loo.address %><p>
       </div>
-        <div class="d-flex flex-column">
-          <div class="category-card">
-            <div class="d-flex align-items-center">
-              <div class="c-score-bar rounded" style="width:100%; height:15px">
+      <div class="d-flex flex-column">
+        <div class="category-card">
+          <div class="d-flex align-items-center">
+            <div class="c-score-bar rounded" style="width:100%; height:15px">
               <div class="c-score-bar-value rounded" style="width:<%= @average_star_rating * 20 %>% ; height:15px"></div>
-              </div>
-              <p class="ms-2"><%= @average_star_rating %></p>
             </div>
+            <p class="ms-2"><%= @average_star_rating %></p>
           </div>
-         </div>
+        </div>
       </div>
+    </div>
     <%# // FACILITIES CONTAINER // %>
     <div class="row">
       <div class="col-12 pt-1 pb-1">
-        <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
-        <i class="fas fa-heart position-icon text-primary ms-1"></i>
-        <i class="fas fa-heart position-icon text-primary ms-1"></i>
-        <i class="fas fa-heart position-icon text-primary ms-1"></i>
+        <% if @loo.parking %>
+          <i class="fas fa-parking"></i>
+        <% end %>
       </div>
     </div>
 
-  <%# // OPENING HOURS CONTAINER // %>
+    <%# // OPENING HOURS CONTAINER // %>
     <div class="row">
       <div class="col-12 pt-2 pb-2">
         <h4>opening hours</h4>
         <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
-        <p><%= @loo.opening_hours %></p>
+        <p><%= @loo.opening_hours.downcase%></p>
       </div>
     </div>
   </div>
 
 
   <%# // RATING CONTAINER // %>
-    <div class="rating-container">
-      <div class="row">
-        <div class="col-12">
-          <h4>Ratings</h4>
-          <div class="d-flex flex-column">
-    <div class="category-card">
-          <p>Cleanlines🧻</p>
+  <div class="rating-container">
+    <div class="row">
+      <div class="col-12">
+        <h4>ratings</h4>
+        <div class="d-flex flex-column">
+          <div class="category-card">
+            <p>cleanlines🧻</p>
             <div class="d-flex align-items-center">
               <div class="c-score-bar rounded">
                 <div class="c-score-bar-value rounded" style="width:<%= @average_cleanliness_rating * 20 %>%"></div>
@@ -59,39 +57,38 @@
             </div>
           </div>
           <div class="category-card">
-            <p>Flushing power💪</p>
+            <p>Flushing power 💪</p>
             <div class="d-flex align-items-center">
               <div class="c-score-bar rounded">
                 <div class="c-score-bar-value rounded"
-                 style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
+                style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
               </div>
               <p class="ms-2"><%= @average_flushing_power_rating %></p>
             </div>
           </div>
-                <div class="category-card">
-                  <p>Ambience💃</p>
-                  <div class="d-flex align-items-center">
-                    <div class="c-score-bar rounded">
-                      <div class="c-score-bar-value rounded" style="width:<%= @average_ambience_rating * 20 %>%"></div>
-                    </div>
-                    <%= @average_ambience_rating %>
-                  </div>
-                </div>
-              <div class="category-card">
-                <p>Toiler paper🧻 and soap🧴</p>
-                <div class="d-flex align-items-center">
-                  <div class="c-score-bar rounded">
-                    <div class="c-score-bar-value rounded" style="width:<%= @average_toilet_paper_soap_rating * 20 %>%"></div>
-                  </div>
-                  <%= @average_toilet_paper_soap_rating %>
+          <div class="category-card">
+            <p>ambience 💃</p>
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded">
+                <div class="c-score-bar-value rounded" style="width:<%= @average_ambience_rating * 20 %>%"></div>
+              </div>
+              <p class="ms-2"><%= @average_ambience_rating %></p>
+            </div>
+          </div>
+          <div class="category-card">
+            <p>toiler paper 🧻 & soap 🧴</p>
+            <div class="d-flex align-items-center">
+              <div class="c-score-bar rounded text-info">
+                <div class="c-score-bar-value rounded" style="width:<%= @average_toilet_paper_soap_rating * 20 %>%">
                 </div>
               </div>
-              <p class="ms-2"><%= @average_toilet_paper_soap_rating %></p>
+            <p class="ms-2"><%= @average_toilet_paper_soap_rating %></p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   <%# // Button to toilet route to be updated //  %>
-  <%= link_to "to the LOO!", loos_path, class: "col-12 mx-auto btn btn-primary text-warning", style: "position: absolute; bottom: 0px" %>
+  <%= link_to "to the LOO!", loos_path, class: "btn btn-primary text-warning w-100" %>
 </div>

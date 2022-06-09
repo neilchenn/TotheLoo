@@ -13,6 +13,13 @@ User.create!(
   password: 'secret'
 )
 
+5.times do |index|
+  User.create!(
+    email: "user#{index + 1}@user.com",
+    password: 'secret'
+  )
+end
+
 require "open-uri"
 require "json"
 
@@ -106,4 +113,17 @@ data_cockatoo.each do |loo|
     opening_hours: loo["OpeningHours"],
     user_id: User.first.id
   )
+end
+
+Loo.all.each do |loo|
+  User.all.each do |user|
+    review = Review.create!(
+                        user: user,
+                        loo: loo,
+                        cleanliness: rand(0..10),
+                        flushing_power: rand(0..10),
+                        ambience: rand(0..10),
+                        toilet_paper_soap: rand(0..10),
+                        star_rating: rand(0..10))
+  end
 end

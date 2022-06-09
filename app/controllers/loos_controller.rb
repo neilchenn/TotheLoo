@@ -4,7 +4,6 @@ class LoosController < ApplicationController
 
   def index
     @loos = Loo.all
-
     if params[:query].present?
       @loos = Loo.geocoded.search_by_loo_fields(params[:query])
     else
@@ -71,16 +70,19 @@ class LoosController < ApplicationController
   end
 
   def navigation
+
   end
 
   def favourite
     @loo = Loo.find(params[:id])
-    current_user.favourite(@loo)
+    current_user.favorite @loo
+    redirect_back(fallback_location: loo_path(@loo))
   end
 
   def unfavourite
     @loo = Loo.find(params[:id])
-    current_user.unfavourite(@loo)
+    current_user.unfavorite @loo
+    redirect_back(fallback_location: loo_path(@loo))
   end
 
   private

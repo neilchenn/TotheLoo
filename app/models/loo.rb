@@ -16,4 +16,9 @@ class Loo < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+    def average_rating
+# logic for calculating averages
+# return hash value for averages
+    end
 end

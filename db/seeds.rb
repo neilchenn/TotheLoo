@@ -122,10 +122,10 @@ Loo.all.each do |loo|
     review = Review.create!(
               user: user,
               loo: loo,
-              cleanliness: rand(0..10),
-              flushing_power: rand(0..10),
-              ambience: rand(0..10),
-              toilet_paper_soap: rand(0..10),
-              star_rating: rand(0..10))
+              cleanliness: rand(0..9),
+              flushing_power: rand(0..9),
+              ambience: rand(0..9),
+              toilet_paper_soap: rand(0..9),
+              star_rating: rand(0..9))
   end
 end

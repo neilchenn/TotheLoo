@@ -18,16 +18,8 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
-      // center: [-37.8, 144.9],
-      // zoom: 3
     })
 
-    // const map = new mapboxgl.Map({
-    //   container: 'map', // container ID
-    //   style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    //   center: [-96, 37.8], // starting position
-    //   zoom: 3 // starting zoom
-    //   });
 
       // Add geolocate control to the map.
       this.map.addControl(
@@ -39,12 +31,11 @@ export default class extends Controller {
         trackUserLocation: true,
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true,
-
-
         }),
         'bottom-right',
       );
 
+      // To get the current position
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(position => {
           console.log(position)
@@ -57,20 +48,8 @@ export default class extends Controller {
 
       // this.map.Geolocation.getCurrentPosition();
 
-      this.map.addControl(
-        new MapboxDirections({
-          accessToken: mapboxgl.accessToken
-          }),
-          'bottom-left'
-      );
-
-
-
-
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-    //   mapboxgl: mapboxgl }))
   }
 
   #addMarkersToMap() {

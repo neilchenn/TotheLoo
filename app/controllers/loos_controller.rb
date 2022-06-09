@@ -70,7 +70,7 @@ class LoosController < ApplicationController
   end
 
   def navigation
-
+    @loo = Loo.find(params[:id])
   end
 
   def favourite
@@ -84,6 +84,13 @@ class LoosController < ApplicationController
     current_user.unfavorite @loo
     redirect_back(fallback_location: loo_path(@loo))
   end
+
+  def nearest_loo
+    @nearest_loo = Loo.near([params[:latitude], params[:longitude]]).first
+    @markers = [@nearest_loo]
+  end
+
+
 
   private
 

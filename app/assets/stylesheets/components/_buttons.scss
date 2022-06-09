@@ -12,7 +12,21 @@
 
 .btn-2 {
   font-family: $button-font;
-  padding: 0.475rem 0.75rem;
+  padding: 0.2rem 0.2rem;
   border-radius: 4px;
 
+}
+
+.btn-3 {
+  color: $primary;
+  background-color: white;
+
+
+
+  &:hover {
+    color: black;
+    background: $primary;
+
+
+}
 }

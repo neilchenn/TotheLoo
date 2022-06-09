@@ -3,9 +3,9 @@
 <p><%= loo.address %></p>
 
 
-<p>Facilities:
+<p>
  <% if loo.parking %>
-<i class="fas fa-parking ms-1"></i>
+<i class="fas fa-parking"></i>
 <% end %>
 
 
@@ -33,7 +33,9 @@
 <i class="fas fa-restroom ms-1"></i>
 <% end %>
 </p>
-<p>To do: Distance from me:</p>
+
+<p> <i class="fas fa-star " ></i>
+ <%= loo.average_star_rating %></p>
 
 
 
@@ -44,8 +46,8 @@
 
 
 
-<%= link_to loo_path(loo) do %>
-<i class="fas fa-search" style=  "width 100%"></i>
-<%# //make button pink with white magnifying glass %>
 
-<%end %>
+
+
+
+<%= link_to 'Pick Me', loo_path(loo), class: "btn btn-3 btn btn-outline-primary btn-sm border-3"%>

@@ -27,7 +27,8 @@
       </div>
       <%# map overlay at the bottom of page %>
       <div style="position: absolute; bottom: 0px; padding: 10px;">
-       <%= link_to "TotheLOO!!", loos_path, class: "btn btn-primary" %>
+
+       <%= link_to "Find the nearest Loo!", nearest_loo_loos_path, class: "btn btn-primary", data: {controller: "find-nearest-loo"} %>
        </div>
     </div>
 

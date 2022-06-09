@@ -17,6 +17,7 @@ class Loo < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+
   def average_star_rating
     # return nil if no reviews
     return nil if reviews.empty?
@@ -24,4 +25,10 @@ class Loo < ApplicationRecord
     reviews.average(:star_rating).to_i.fdiv(2)
     # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
   end
+
+  def average_rating
+    # logic for calculating averages
+    # return hash value for averages
+  end
+
 end

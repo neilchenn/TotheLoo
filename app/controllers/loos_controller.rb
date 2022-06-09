@@ -4,7 +4,7 @@ class LoosController < ApplicationController
 
   def index
     @loos = Loo.all
-    # raise
+    # @loos = Loo.near([params[:latitude], params[:longitude]], 20, units: :km)
     if params[:query].present?
       @loos = Loo.geocoded.search_by_loo_fields(params[:query])
     else
@@ -87,11 +87,12 @@ class LoosController < ApplicationController
   end
 
   def nearest_loo
-    @nearest_loo = Loo.near([params[:latitude], params[:longitude]]).first
+    @nearest_loo = Loo.near([params[:latitude], params[:longitude]], 20, units: :km).first
     @markers = [@nearest_loo]
+    # raise
+    redirect_to loo_path(@nearest_loo)
+    # redirect_to root_path
   end
-
-
 
   private
 

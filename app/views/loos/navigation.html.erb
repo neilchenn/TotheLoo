@@ -3,7 +3,10 @@
         data-mapbox-directions-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
         data-mapbox-directions-destination-value="<%= [@loo.longitude, @loo.latitude] %>">
 </div>
-
+<div class="d-flex justift-content-between"style="position: absolute; bottom: 0px; left: 0px; padding: 10px; z-index: 1; width: 100%;">
+  <%= link_to "Abort", loo_path(@loo), class:"btn btn-primary" %>
+  <%= link_to "I have arrived! And im ready to poop!", new_loo_review_path(@loo), class:"btn btn-primary" %>
+</div>
 
 
 <%# Distance from me: use class: mapbox-directions-component mapbox-directions-route-summary -> h1 -> innertext %>

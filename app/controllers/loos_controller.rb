@@ -4,6 +4,7 @@ class LoosController < ApplicationController
 
   def index
     @loos = Loo.all
+    # raise
     if params[:query].present?
       @loos = Loo.geocoded.search_by_loo_fields(params[:query])
     else

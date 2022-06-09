@@ -75,12 +75,14 @@ class LoosController < ApplicationController
 
   def favourite
     @loo = Loo.find(params[:id])
-    current_user.favourite(@loo)
+    current_user.favorite(@loo)
+    redirect_to loo_path(@loo)
   end
 
   def unfavourite
     @loo = Loo.find(params[:id])
-    current_user.unfavourite(@loo)
+    current_user.unfavorite(@loo)
+    redirect_to loo_path(@loo)
   end
 
   private

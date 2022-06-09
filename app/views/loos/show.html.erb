@@ -1,5 +1,14 @@
 <div class="container", style="position: relative">
   <div class="rating-container">
+    <div class="d-flex justify-content-between">
+      <% unless @loo.favorited_by? current_user %>
+        <%= link_to "Favorite", favourite_loo_path, method: :post, remote: true %>
+        <% else %>
+        <%= link_to "Unfavorite", unfavourite_loo_path, method: :delete, remote: true %>
+        <% end %>
+        <%= link_to "new review, temp link", new_loo_review_path(@loo) %>
+        <%= link_to "X", root_path %>
+      </div>
     <div class="row">
       <div class="col-12 pt-2">
         <h1 style="margin-bottom: 0"><%= @loo.name %></h1>
@@ -87,3 +96,4 @@
   <%# // Button to toilet route to be updated //  %>
   <%= link_to "to the LOO!", loos_path, class: "btn btn-primary text-warning w-100" %>
 </div>
+hello

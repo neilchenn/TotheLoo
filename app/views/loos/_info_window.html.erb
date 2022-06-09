@@ -1,3 +1,4 @@
+
 <h2><%= loo.name %></h2>
 <p><%= loo.address %></p>
 
@@ -32,13 +33,7 @@
 <i class="fas fa-restroom ms-1"></i>
 <% end %>
 </p>
-
-
-
 <p>To do: Distance from me:</p>
-<p>TODO: Average rating: using bar</p>
-<p>TODO: how to make it clickable on card</p>
-<p>TODO: Add star to make favourite loo</p>
 
 
 
@@ -49,4 +44,8 @@
 
 
 
-<%= link_to 'Learn more', loo_path(loo), class: "btn btn-primary" %>
+<%= link_to loo_path(loo) do %>
+<i class="fas fa-search" style=  "width 100%"></i>
+<%# //make button pink with white magnifying glass %>
+
+<%end %>

@@ -71,6 +71,7 @@ class LoosController < ApplicationController
   end
 
   def navigation
+    @loo = Loo.find(params[:id])
   end
 
   def favourite
@@ -82,6 +83,13 @@ class LoosController < ApplicationController
     @loo = Loo.find(params[:id])
     current_user.unfavourite(@loo)
   end
+
+  def nearest_loo
+    @nearest_loo = Loo.near([params[:latitude], params[:longitude]]).first
+    @markers = [@nearest_loo]
+  end
+
+
 
   private
 

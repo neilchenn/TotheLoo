@@ -8,5 +8,8 @@ Rails.application.routes.draw do
       post :favourite
       delete :unfavourite
     end
+    collection do
+      get :nearest_loo
+    end
   end
 end

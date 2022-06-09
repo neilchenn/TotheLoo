@@ -1,19 +1,21 @@
+
 <%= render 'shared/map_navbar' %>
+ <div style="position: absolute; top: 0px; left: 0px; padding: 10px; z-index: 1; width: 100%;">
+
+    <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item me-1" role="presentation">
+        <button class="btn-2 btn-secondary btn-sm active fs-3 text" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
+      </li>
+      <li class="nav-item me-1" role="presentation">
+        <button class="btn-2 btn-secondary btn-sm fs-3 text" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
+      </li>
+    </ul>
+  </div>
 
 <%# Mapbox map display %>
 <div style="width: 100vw; height: 100vh; position: relative;">
   <%# controls %>
-  <div style="position: absolute; top: 0px; left: 0px; padding: 10px; z-index: 1; width: 100%;">
 
-    <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
-      <li class="nav-item me-1" role="presentation">
-        <button class="btn btn-secondary btn-sm active fs-5 text" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
-      </li>
-      <li class="nav-item me-1" role="presentation">
-        <button class="btn btn-secondary btn-sm fs-5 text" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
-      </li>
-    </ul>
-  </div>
 
   <%# content %>
   <div class="tab-content" id="pills-tabContent" style="height: 100%">
@@ -25,33 +27,20 @@
       </div>
       <%# map overlay at the bottom of page %>
       <div style="position: absolute; bottom: 0px; padding: 10px;">
-       <%= link_to "TotheLOO!!", loos_path, class: "btn btn-primary" %>
+
+       <%= link_to "Find the nearest Loo!", nearest_loo_loos_path, class: "btn btn-primary", data: {controller: "find-nearest-loo"} %>
        </div>
     </div>
 
 
     <div class="tab-pane fade" id="pills-listview" role="tabpanel" aria-labelledby="pills-listview-tab">
-      <div class="container-index-list">
+      <div class="container">
         <% @loos.each do |loo| %>
-          <div class="border border-primary mb-2">
-            <p>
-              <strong>Name:</strong>
-              <%= loo.name %>
-            </p>
-            <p>
-              <strong>Facility Type:</strong>
-              <%= loo.facility_type %>
-            </p>
-            <p>
-              <strong>Address:</strong>
-              <%= loo.address %>
-            </p>
+          <%= render 'loo', loo: loo %>
 
-            <%= link_to 'Learn more', loo_path(loo), class: "btn btn-primary" %>
-
-          </div>
         <% end %>
-      </div>
+
+         </div>
     </div>
 
 

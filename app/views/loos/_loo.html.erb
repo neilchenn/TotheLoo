@@ -1,0 +1,48 @@
+<div class="mb-2 border border-2 p-3" style="border-radius: 4px;">
+  <h1>
+    <%= loo.name %>
+  </h1>
+  <p>
+    <strong>Facility Type:</strong>
+    <%= loo.facility_type %>
+  </p>
+  <p>Facilities:
+    <% if loo.parking %>
+    <i class="fas fa-parking ms-1"></i>
+    <% end %>
+
+
+    <% if loo.accessible %>
+    <i class="fas fa-wheelchair ms-1"></i>
+    <% end %>
+
+
+    <% if loo.baby_change %>
+    <i class="fas fa-baby ms-1"></i>
+    <% end %>
+
+
+    <% if loo.male %>
+    <i class="fas fa-male ms-1"></i>
+    <% end %>
+
+
+    <% if loo.female %>
+    <i class="fas fa-female ms-1"></i>
+    <% end %>
+
+
+    <% if loo.unisex %>
+    <i class="fas fa-restroom ms-1"></i>
+    <% end %>
+  <p>
+    <strong>Address:</strong>
+    <%= loo.address %>
+  </p>
+  <p> <i class="fas fa-star " ></i>
+  <%= loo.average_star_rating %></p>
+
+  <%= link_to 'Pick Me', loo_path(loo), class: "btn btn-outline-primary btn-sm border-3"%>
+
+
+</div>

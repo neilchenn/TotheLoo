@@ -92,6 +92,7 @@ data_barham.each do |loo|
   )
 end
 
+
 url_cockatoo = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=cockatoo&limit=20"
 
 buffer_cockatoo = URI.open(url_cockatoo).read
@@ -115,15 +116,16 @@ data_cockatoo.each do |loo|
   )
 end
 
+
 Loo.all.each do |loo|
   User.all.each do |user|
     review = Review.create!(
-                        user: user,
-                        loo: loo,
-                        cleanliness: rand(0..10),
-                        flushing_power: rand(0..10),
-                        ambience: rand(0..10),
-                        toilet_paper_soap: rand(0..10),
-                        star_rating: rand(0..10))
+              user: user,
+              loo: loo,
+              cleanliness: rand(0..10),
+              flushing_power: rand(0..10),
+              ambience: rand(0..10),
+              toilet_paper_soap: rand(0..10),
+              star_rating: rand(0..10))
   end
 end

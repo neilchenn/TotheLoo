@@ -31,7 +31,7 @@ class Loo < ApplicationRecord
     # return nil if no reviews
     return nil if reviews.empty?
     # loop through and grab average
-    reviews.average(:cleanliness).to_f
+    reviews.average(:cleanliness).round.to_i
     # return reviews.sum).fdiv(reviews.count).to_i
   end
 
@@ -39,7 +39,7 @@ class Loo < ApplicationRecord
     # return nil if no reviews
     return nil if reviews.empty?
     # loop through and grab average
-    reviews.average(:flushing_power).to_f
+    reviews.average(:flushing_power).round.to_i
     # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
   end
 
@@ -47,7 +47,7 @@ class Loo < ApplicationRecord
     # return nil if no reviews
     return nil if reviews.empty?
     # loop through and grab average
-    reviews.average(:ambience).to_f
+    reviews.average(:ambience).round.to_i
     # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
   end
 
@@ -55,7 +55,7 @@ class Loo < ApplicationRecord
     # return nil if no reviews
     return nil if reviews.empty?
     # loop through and grab average
-    reviews.average(:toilet_paper_soap).to_f
+    reviews.average(:toilet_paper_soap).round.to_i
     # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
   end
 

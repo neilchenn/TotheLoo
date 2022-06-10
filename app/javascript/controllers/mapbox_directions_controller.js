@@ -51,7 +51,7 @@ export default class extends Controller {
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
         controls: {
-          //instructions: false
+          // instructions: false
         },
         //steps: true,
         //banner_instructions: true,

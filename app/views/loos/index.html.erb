@@ -2,27 +2,48 @@
 <%= render 'shared/map_navbar' %>
   <div style="position: fixed; top: 0px; left: 0px; padding: 10px; z-index: 1; width: 100%;">
 
-  <%# Code for the search bar %>
-  <%= form_tag loos_path, method: :get, class: "my-1" do %>
-    <div class="d-flex">
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a loo"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary ms-1" %>
-    </div>
-  <% end %>
-  <%# End of code for the search bar  %>
 
-    <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
-      <li class="nav-item me-1" role="presentation">
-        <button class="btn-2 btn-secondary btn-sm active fs-3 text" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
-      </li>
-      <li class="nav-item me-1" role="presentation">
-        <button class="btn-2 btn-secondary btn-sm fs-3 text" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
-      </li>
-    </ul>
+    <div class="d-flex", style="Position: relative; Justify-content: evenly; align-items: center;">
+      <div style="flex-grow: 1;">
+        <%# Code for the search bar %>
+        <%= form_tag loos_path, method: :get, class: "my-1" do %>
+          <div class="d-flex inline-block" style="position: relative">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              style: "padding: 14px;",
+              placeholder: "Find a loo"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary ms-1 text-warning", style: "position: absolute; top: 50%; transform: translateY(-50%); right: 4px;" %>
+          </div>
+        <% end %>
+        <%# End of code for the search bar  %>
+      </div>
+
+      <div class="dropdown", style="flex-shrink: 0;">
+        <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-chevron-circle-down"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Login</a></li>
+          <li><a class="dropdown-item" href="#">Favourite loos</a></li>
+          <li><a class="dropdown-item" href="#">Add a loo</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div>
+      <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item me-1" role="presentation">
+          <button class="btn-2 btn-secondary btn-sm active fs-3 text" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
+        </li>
+        <li class="nav-item me-1" role="presentation">
+          <button class="btn-2 btn-secondary btn-sm fs-3 text" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
+        </li>
+      </ul>
+    </div>
+
   </div>
 
 <%# Mapbox map display %>
@@ -39,10 +60,11 @@
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
       <%# map overlay at the bottom of page %>
-      <div style="position: absolute; bottom: 0px; padding: 10px;">
-
-       <%= link_to "find me nearest LOO!", nearest_loo_loos_path, class: "btn btn-primary text-warning w-100", data: {controller: "find-nearest-loo"} %>
-       </div>
+      <div style="position: absolute; bottom: 0px; padding: 10px; display: flex; justify-content: center; width: 100%;">
+        <div style="width: 80%">
+          <%= link_to "find me nearest LOO!", nearest_loo_loos_path, class: "btn btn-primary text-warning w-100", data: {controller: "find-nearest-loo"} %>
+          </div>
+        </div>
     </div>
 
 

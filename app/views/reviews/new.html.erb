@@ -13,23 +13,23 @@
         <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
         <div data-controller="display-range-value">
           <%= f.input :cleanliness, label: "cleanlines🧻", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"10", step:"1" } %>
-          <span class="d-flex justify-content-between"><p >0</p><p>2.5</p><p>5</p></span>
+          <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
           <p data-display-range-value-target="rangeCounter"></p>
         </div>
         <div data-controller="display-range-value">
           <%= f.input :flushing_power, label: "Flushing power💪", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"10", step:"1" } %>
-          <span class="d-flex justify-content-between"><p >0</p><p>2.5</p><p>5</p></span>
+          <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
           <p data-display-range-value-target="rangeCounter"></p>
         </div>
         <div data-controller="display-range-value">
           <%= f.input :ambience, label: "Ambience💃", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"10", step:"1" } %>
-          <span class="d-flex justify-content-between"><p >0</p><p>2.5</p><p>5</p></span>
+          <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
           <p data-display-range-value-target="rangeCounter"></p>
         </div>
           <i class="fa fa-solid fa-toilet-paper-blank position-icon text-primary ms-1"></i>
         <div data-controller="display-range-value">
           <%= f.input :toilet_paper_soap, label: "Toilet paper🧻 and soap🧴", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range", min:"0", max:"10", step:"1" } %>
-          <span class="d-flex justify-content-between"><p >0</p><p>2.5</p><p>5</p></span>
+          <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
           <p data-display-range-value-target="rangeCounter"></p>
         </div>
         <%= f.submit %>

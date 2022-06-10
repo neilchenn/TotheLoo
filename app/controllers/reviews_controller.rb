@@ -20,6 +20,6 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:user_id, :loo_id, :cleanliness, :flushing_power,
-                                   :ambience, :toilet_paper_soap, :report_a_problem)
+                                   :ambience, :toilet_paper_soap, :star_rating, :report_a_problem)
   end
 end

@@ -22,9 +22,44 @@ class Loo < ApplicationRecord
     # return nil if no reviews
     return nil if reviews.empty?
     # loop through and grab average
-    reviews.average(:star_rating).to_i.fdiv(2)
+    # reviews.average(:star_rating).to_f
+    (average_cleanliness_rating + average_flushing_power_rating + average_ambience_rating + average_toilet_paper_soap_rating) / 4
     # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
   end
+
+  def average_cleanliness_rating
+    # return nil if no reviews
+    return nil if reviews.empty?
+    # loop through and grab average
+    reviews.average(:cleanliness).to_f
+    # return reviews.sum).fdiv(reviews.count).to_i
+  end
+
+  def average_flushing_power_rating
+    # return nil if no reviews
+    return nil if reviews.empty?
+    # loop through and grab average
+    reviews.average(:flushing_power).to_f
+    # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
+  end
+
+  def average_ambience_rating
+    # return nil if no reviews
+    return nil if reviews.empty?
+    # loop through and grab average
+    reviews.average(:ambience).to_f
+    # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
+  end
+
+  def average_toilet_paper_soap_rating
+    # return nil if no reviews
+    return nil if reviews.empty?
+    # loop through and grab average
+    reviews.average(:toilet_paper_soap).to_f
+    # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
+  end
+
+
 
   def average_rating
     # logic for calculating averages

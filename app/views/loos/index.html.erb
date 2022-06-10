@@ -2,27 +2,47 @@
 <%= render 'shared/map_navbar' %>
   <div style="position: fixed; top: 0px; left: 0px; padding: 10px; z-index: 1; width: 100%;">
 
-  <%# Code for the search bar %>
-  <%= form_tag loos_path, method: :get, class: "my-1" do %>
-    <div class="d-flex">
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a loo"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary ms-1" %>
-    </div>
-  <% end %>
-  <%# End of code for the search bar  %>
 
-    <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
-      <li class="nav-item me-1" role="presentation">
-        <button class="btn-2 btn-secondary btn-sm active fs-3 text" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
-      </li>
-      <li class="nav-item me-1" role="presentation">
-        <button class="btn-2 btn-secondary btn-sm fs-3 text" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
-      </li>
-    </ul>
+    <div class="d-flex", style="Position: relative; Justify-content: evenly;">
+      <div>
+        <%# Code for the search bar %>
+        <%= form_tag loos_path, method: :get, class: "my-1" do %>
+          <div class="d-flex inline-block">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a loo"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary ms-1", style: "position: relative;" %>
+          </div>
+        <% end %>
+        <%# End of code for the search bar  %>
+      </div>
+
+      <div class="dropdown", style="Position: absolute; Top: 4px; right: 0px;">
+        <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-chevron-circle-down"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Login</a></li>
+          <li><a class="dropdown-item" href="#">Favourite loos</a></li>
+          <li><a class="dropdown-item" href="#">Add a loo</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div>
+      <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item me-1" role="presentation">
+          <button class="btn-2 btn-secondary btn-sm active fs-3 text" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
+        </li>
+        <li class="nav-item me-1" role="presentation">
+          <button class="btn-2 btn-secondary btn-sm fs-3 text" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
+        </li>
+      </ul>
+    </div>
+
   </div>
 
 <%# Mapbox map display %>

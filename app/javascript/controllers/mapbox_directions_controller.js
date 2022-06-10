@@ -50,6 +50,11 @@ export default class extends Controller {
       this.directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
+        controls: {
+          //instructions: false
+        },
+        //steps: true,
+        //banner_instructions: true,
       })
 
       this.map.addControl(

@@ -1,6 +1,6 @@
 
 <div class="container">
-  <%= link_to root_path do %>
+  <%= link_to loos_path do %>
     <i class="far fa-times-circle"></i>
   <% end %>
 
@@ -33,16 +33,15 @@
           <div class="category-card">
             <div class="d-flex align-items-center">
               <div class="c-score-bar rounded" style="width:100%; height:15px">
-                <div class="c-score-bar-value rounded" style="width:<%= @average_star_rating * 20 %>% ; height:15px"></div>
+                <div class="c-score-bar-value rounded" style="width:<%= @loo.average_star_rating * 10 %>% ; height:15px"></div>
               </div>
-              <p class="ms-2"><%= @average_star_rating %></p>
+              <p class="ms-2"><%= @loo.average_star_rating %></p>
             </div>
           </div>
         </div>
       <% end %>
     </div>
     <%# // facilities with icons container// %>
-    <% if @loo.reviews.present? %>
       <div class="d-flex align-items-center">
         <% if @loo.parking %>
           <i class="fas fa-parking fa-2xl fa-circle me-3 d-inline-block"></i>
@@ -68,7 +67,6 @@
           <i class="fas fa-restroom fa-2xl me-3 d-inline-block"></i>
         <% end %>
       </div>
-    <% end %>
 
     <%# // OPENING HOURS CONTAINER // %>
     <div class="row">
@@ -92,9 +90,9 @@
               <p>cleanlines🧻</p>
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded">
-                  <div class="c-score-bar-value rounded" style="width:<%= @average_cleanliness_rating * 20 %>%"></div>
+                  <div class="c-score-bar-value rounded" style="width:<%= @loo.average_cleanliness_rating * 10 %>%"></div>
                 </div>
-                <p class="ms-2"><%= @average_cleanliness_rating %></p>
+                <p class="ms-2"><%= @loo.average_cleanliness_rating %></p>
               </div>
             </div>
             <div class="category-card", style="margin-top: 15px;">
@@ -102,28 +100,28 @@
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded">
                   <div class="c-score-bar-value rounded"
-                  style="width:<%= @average_flushing_power_rating * 20 %>%"></div>
+                  style="width:<%= @loo.average_flushing_power_rating * 10 %>%"></div>
                 </div>
-                <p class="ms-2"><%= @average_flushing_power_rating %></p>
+                <p class="ms-2"><%= @loo.average_flushing_power_rating %></p>
               </div>
             </div>
             <div class="category-card", style="margin-top: 15px;" >
               <p>ambience 💃</p>
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded">
-                  <div class="c-score-bar-value rounded" style="width:<%= @average_ambience_rating * 20 %>%"></div>
+                  <div class="c-score-bar-value rounded" style="width:<%= @loo.average_ambience_rating * 10 %>%"></div>
                 </div>
-                <p class="ms-2"><%= @average_ambience_rating %></p>
+                <p class="ms-2"><%= @loo.average_ambience_rating %></p>
               </div>
             </div>
             <div class="category-card", style="margin-top: 15px;" >
               <p>toiler paper 🧻 & soap 🧴</p>
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded text-info">
-                  <div class="c-score-bar-value rounded" style="width:<%= @average_toilet_paper_soap_rating * 20 %>%">
+                  <div class="c-score-bar-value rounded" style="width:<%= @loo.average_toilet_paper_soap_rating * 10 %>%">
                   </div>
                 </div>
-              <p class="ms-2"><%= @average_toilet_paper_soap_rating %></p>
+              <p class="ms-2"><%= @loo.average_toilet_paper_soap_rating %></p>
               </div>
             </div>
           </div>
@@ -134,4 +132,3 @@
   <%# // Button to toilet route to be updated //  %>
   <%= link_to "to the LOO!", navigation_loo_path(@loo) , class: "btn btn-primary text-warning w-100" %>
 </div>
-hello

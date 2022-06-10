@@ -50,7 +50,7 @@ class LoosController < ApplicationController
 
   def navigation
     @loo = Loo.find(params[:id])
-    # raise
+
     # @loo = Loo.near([params[:latitude], params[:longitude]], 20, units: :km).first
   end
 

@@ -1,39 +1,55 @@
 
 
  <%# // RATING CONTAINER - flex to be added later // %>
-<div class="container" style="position: relative">
+<div class="container" style="position: relative; margin: 20px; background: white; border-radius: 6px;">
  <%= link_to loos_path do %>
   <div class="d-flex justify-content-end mb-1 fs-3" style="padding-right: 10px">
     <i class="far fa-times-circle"></i>
   </div>
   <% end %>
 <h1><%= @loo.name %></h1>
+
   <div class="row">
     <div class="col-12">
 
       <%= simple_form_for [@loo, @review] do |f| %>
+
         <h2>Review this loo!</h2>
-        <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
+        <br>
+
         <div data-conroller="display-range-value">
-          <%= f.input :cleanliness, label: "cleanlines🧻", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
+        <h5>
+          <%= f.input :cleanliness, label: "Cleanliness 🧻", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
+        </h5>
           <span class="d-flex justify-content-between "><p >0</p><p>5</p><p>10</p></span>
           <p data-display-range-value-target="rangeCounter" class= border-0></p>
         </div>
+
         <div data-controller="display-range-value">
-          <%= f.input :flushing_power, label: "Flushing power💪", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
+          <h5>
+            <%= f.input :flushing_power, label: "Flushing power 💪", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
+          </h5>
           <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
-          <p data-display-range-value-target="rangeCounter"></p>
+            <p data-display-range-value-target="rangeCounter"></p>
         </div>
+
+
         <div data-controller="display-range-value">
-          <%= f.input :ambience, label: "Ambience💃", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0 ", min:"0", max:"10", step:"1" } %>
-          <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
-          <p data-display-range-value-target="rangeCounter"></p>
+          <h5>
+            <%= f.input :ambience, label: "Ambience 💃", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0 ", min:"0", max:"10", step:"1" } %>
+          </h5>
+            <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
+            <p data-display-range-value-target="rangeCounter"></p>
         </div>
-          <i class="fa fa-solid fa-toilet-paper-blank position-icon text-primary ms-1"></i>
+
+
+
         <div data-controller="display-range-value">
-          <%= f.input :toilet_paper_soap, label: "Toilet paper🧻 and soap🧴", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
-          <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
-          <p data-display-range-value-target="rangeCounter"></p>
+          <h5>
+            <%= f.input :toilet_paper_soap, label: "Toilet paper 🧻 and soap🧴", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
+          </h5>
+            <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
+            <p data-display-range-value-target="rangeCounter"></p>
         </div>
         <div class="d-flex justify-content-center" style="width: 100%;">
           <div class="main-button">

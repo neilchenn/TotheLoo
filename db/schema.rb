@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(version: 2022_06_10_042110) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "loo_id", null: false
-    t.integer "cleanliness"
-    t.integer "flushing_power"
-    t.integer "ambience"
-    t.integer "toilet_paper_soap"
+    t.decimal "cleanliness", precision: 4, scale: 1
+    t.decimal "flushing_power", precision: 4, scale: 1
+    t.decimal "ambience", precision: 4, scale: 1
+    t.decimal "toilet_paper_soap", precision: 4, scale: 1
     t.string "report_a_problem"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "star_rating"
+    t.decimal "star_rating", precision: 4, scale: 1
     t.index ["loo_id"], name: "index_reviews_on_loo_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

@@ -30,8 +30,9 @@ class LoosController < ApplicationController
 
   def create
     @loo = Loo.new(loo_params)
+    @loo.user_id = current_user.id
     if @loo.save
-      redirect_to loos_path
+      redirect_to root_path
     else
       render :new
     end

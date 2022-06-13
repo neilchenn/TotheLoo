@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2022_06_10_042110) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "star_rating"
-
     t.index ["loo_id"], name: "index_reviews_on_loo_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

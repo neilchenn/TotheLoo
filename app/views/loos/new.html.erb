@@ -1,0 +1,32 @@
+<div class="container", style="margin: 20px">
+
+<h2>Add a new Loo</h2>
+
+<%= simple_form_for @loo do |f| %>
+  <%= f.input :name, label: "Toilet", placeholder: "Enter a name, eg. Richmond" %>
+  <%= f.input :address %>
+  <%= f.input :parking %>
+  <%= f.input :accessible %>
+  <%= f.input :baby_change %>
+  <%= f.input :male %>
+  <%= f.input :female %>
+  <%= f.input :unisex %>
+  <%= f.input :opening_hours, placeholder: "Monday-Friday, 9am-5pm"%>
+  <%= f.button :submit, "Submit!", class:"btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto" %>
+
+<%# To do: does the asterix need to be in the form for required field?
+Geocode location for user input, can they just type the address and it will convert to coordinates
+pop up for confirmation of new toilet has been created
+styling tips from jono?%>
+
+
+
+<% end %>
+
+
+
+<%= link_to loos_path do %>
+
+<% end %>
+</div>
+</div>

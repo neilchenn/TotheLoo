@@ -3,7 +3,9 @@
  <%# // RATING CONTAINER - flex to be added later // %>
 <div class="container" style="position: relative">
  <%= link_to loos_path do %>
-    <i class="far fa-times-circle", style="position: absolute; right: 15px;top: 0px;" ></i>
+  <div class="d-flex justify-content-end mb-1 fs-3" style="padding-right: 10px">
+    <i class="far fa-times-circle"></i>
+  </div>
   <% end %>
 <h1><%= @loo.name %></h1>
   <div class="row">
@@ -33,9 +35,11 @@
           <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
           <p data-display-range-value-target="rangeCounter"></p>
         </div>
-        <div class= "d-flex justify-content-center">
-        <%= f.submit class: "btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto"%>
-         </div>
+        <div class="d-flex justify-content-center" style="width: 100%;">
+          <div class="main-button">
+        <%= f.submit class: "btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
+          </div>
+        </div>
       <% end %>
 
     </div>

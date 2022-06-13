@@ -1,7 +1,7 @@
 
 <div class="container">
-  <%= link_to loos_path do %>
-  <div class="d-flex justify-content-end">
+  <%= link_to loos_path, class:"text-decoration-none" do %>
+  <div class="d-flex justify-content-end mb-1 fs-3" style="padding-right: 10px">
     <i class="far fa-times-circle"></i>
   </div>
   <% end %>
@@ -9,23 +9,20 @@
   <div class="rating-container", style="position: relative">
     <div class="row">
       <div class="col-12 pt-2">
-        <div class="d-flex justify-content-between", style="position: absolute; top: 20px; right: 9px;">
-          <%# // favorite buttons //  %>
+        <div class="d-flex flex-row-reverse justify-content-between align-items-start">
            <% unless @loo.favorited_by? current_user %>
             <%= link_to favourite_loo_path, method: :post, remote: true do %>
-              <i class="fas fa-heart ms-2"></i>
+              <i class="fas fa-heart fs-3"></i>
             <% end %>
             <% else %>
             <%= link_to unfavourite_loo_path, method: :delete, remote: true do %>
-              <i class="far fa-heart"></i>
+              <i class="far fa-heart fs-3"></i>
             <% end %>
           <% end %>
-        <%# // ------------------- //  %>
-        </div>
-
-        <div style="position: relative">
-          <h1 style="margin-bottom: 0"><%= @loo.name %></h1>
-          <p><%= @loo.address %></p>
+          <div class="d-flex flex-column">
+            <h1 style="margin-bottom: 0"><%= @loo.name %></h1>
+            <p><%= @loo.address %></p>
+          </div>
         </div>
 
 
@@ -33,6 +30,7 @@
       <% if @loo.reviews.present? %>
         <div class="d-flex flex-column">
           <div class="category-card">
+            <p>Overall rating</p>
             <div class="d-flex align-items-center">
               <div class="c-score-bar rounded" style="width:100%; height:15px">
                 <div class="c-score-bar-value rounded" style="width:<%= @loo.average_star_rating * 10 %>% ; height:15px"></div>
@@ -44,7 +42,9 @@
       <% end %>
     </div>
     <%# // facilities with icons container// %>
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center fs-3">
+      <br>
+      <br>
         <% if @loo.parking %>
           <i class="fas fa-parking fa-2xl fa-circle me-3 d-inline-block"></i>
         <% end %>
@@ -73,9 +73,9 @@
     <%# // OPENING HOURS CONTAINER // %>
     <div class="row">
       <div class="col-12 pt-2 pb-2", style="margin-top: 10px;">
-        <h4 style="margin-bottom: 0px;">opening hours</h4>
+        <h4 style="margin-bottom: 0px;">Opening hours</h4>
         <%# // PLACEHOLDER FOR ICONS BELOW - to be updated by shannon later // %>
-        <p><%= @loo.opening_hours.downcase%></p>
+        <p><%= @loo.opening_hours.capitalize%></p>
       </div>
     </div>
   </div>
@@ -86,10 +86,10 @@
     <div class="rating-container">
       <div class="row">
         <div class="col-12", style="padding-bottom: 20px;">
-          <h4>ratings</h4>
+          <h4>Ratings</h4>
           <div class="d-flex flex-column">
             <div class="category-card", style="margin-top: 15px;" >
-              <p>cleanlines🧻</p>
+              <p>Cleanlines 🧽</p>
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded">
                   <div class="c-score-bar-value rounded" style="width:<%= @loo.average_cleanliness_rating * 10 %>%"></div>
@@ -108,7 +108,7 @@
               </div>
             </div>
             <div class="category-card", style="margin-top: 15px;" >
-              <p>ambience 💃</p>
+              <p>Ambience 💃</p>
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded">
                   <div class="c-score-bar-value rounded" style="width:<%= @loo.average_ambience_rating * 10 %>%"></div>
@@ -117,7 +117,7 @@
               </div>
             </div>
             <div class="category-card", style="margin-top: 15px;" >
-              <p>toiler paper 🧻 & soap 🧴</p>
+              <p>Toiler paper 🧻 & soap 🧴</p>
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded text-info">
                   <div class="c-score-bar-value rounded" style="width:<%= @loo.average_toilet_paper_soap_rating * 10 %>%">
@@ -131,6 +131,12 @@
       </div>
     </div>
   <% end %>
+  <br>
+</div>
   <%# // Button to toilet route to be updated //  %>
-  <%= link_to "to the LOO!", navigation_loo_path(@loo) , class: "btn btn-primary text-warning w-100" %>
+
+<div class="d-flex justify-content-center" style="width: 100%;">
+  <div class="main-button">
+    <%= link_to "To The LOO!", navigation_loo_path(@loo) , class: "btn btn-primary text-warning w-100" %>
+  </div>
 </div>

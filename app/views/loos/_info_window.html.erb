@@ -4,38 +4,38 @@
 
 
 <p>
- <% if loo.parking %>
-<i class="fas fa-parking"></i>
-<% end %>
+  <% if loo.parking %>
+    <i class="fas fa-parking fs-5"></i>
+  <% end %>
 
 
- <% if loo.accessible %>
-<i class="fas fa-wheelchair ms-1"></i>
-<% end %>
+  <% if loo.accessible %>
+    <i class="fas fa-wheelchair ms-1 fs-5"></i>
+  <% end %>
 
 
- <% if loo.baby_change %>
-<i class="fas fa-baby ms-1"></i>
-<% end %>
+  <% if loo.baby_change %>
+    <i class="fas fa-baby ms-1 fs-5"></i>
+  <% end %>
 
 
- <% if loo.male %>
-<i class="fas fa-male ms-1"></i>
-<% end %>
+  <% if loo.male %>
+    <i class="fas fa-male ms-1 fs-5"></i>
+  <% end %>
 
 
- <% if loo.female %>
-<i class="fas fa-female ms-1"></i>
-<% end %>
+  <% if loo.female %>
+    <i class="fas fa-female ms-1 fs-5"></i>
+  <% end %>
 
 
-<% if loo.unisex %>
-<i class="fas fa-restroom ms-1"></i>
-<% end %>
+  <% if loo.unisex %>
+    <i class="fas fa-restroom ms-1 fs-5"></i>
+  <% end %>
 </p>
 
-<p> <i class="fas fa-star " ></i>
- <%= loo.average_star_rating %></p>
+<p> <i class="fas fa-star" ></i>
+<%= loo.average_star_rating %></p>
 
 
 
@@ -50,4 +50,4 @@
 
 
 
-<%= link_to 'Pick Me', loo_path(loo), class: "btn btn-3 btn btn-outline-primary btn-sm border-3"%>
+<%= link_to 'Pick Me', loo_path(loo), class: "btn btn-3 btn-outline-primary btn-sm border-3"%>

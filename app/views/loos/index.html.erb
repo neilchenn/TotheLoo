@@ -38,10 +38,10 @@
     <div>
       <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
         <li class="nav-item me-1" role="presentation">
-          <button class="btn btn-outline-dark active" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
+          <button class="btn btn-outline-dark active" style="backgorund-color: $primary" id="pills-mapview-tab" data-bs-toggle="pill" data-bs-target="#pills-mapview" type="button" role="tab" aria-controls="pills-mapview" aria-selected="false">Map view</button>
         </li>
         <li class="nav-item me-1" role="presentation">
-          <button class="btn btn-outline-dark btn-sm" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
+          <button class="btn btn-outline-dark" id="pills-listview-tab" data-bs-toggle="pill" data-bs-target="#pills-listview" type="button" role="tab" aria-controls="pills-listview" aria-selected="false">List view</button>
         </li>
       </ul>
     </div>
@@ -62,9 +62,9 @@
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
       <%# map overlay at the bottom of page %>
-      <div style="position: absolute; bottom: 0px; padding: 10px; display: flex; justify-content: center; width: 100%;">
-        <div style="width: 80%">
-          <%= link_to "find me nearest LOO!", nearest_loo_loos_path, class: "btn btn-primary text-warning w-100", data: {controller: "find-nearest-loo"} %>
+      <div class="d-flex justify-content-center" style="width: 100%;">
+        <div class="main-button">
+          <%= link_to "Wheres the closest LOO?!", nearest_loo_loos_path, class: "btn btn-primary text-warning w-100", data: {controller: "find-nearest-loo"} %>
           </div>
         </div>
     </div>

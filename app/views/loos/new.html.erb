@@ -1,8 +1,10 @@
-<div class="container", style="background: white; margin: 20px; border-radius: 6px;">
-  <%= link_to loos_path do %>
-    <i class="far fa-times-circle", style="position: absolute; right: 10px;top: 0px;" ></i>
-  <% end %>
+<%= link_to loos_path do %>
+<div class="d-flex justify-content-end mb-1 fs-3" style="padding-right: 10px">
+  <i class="far fa-times-circle"></i>
+</div>
+<% end %>
 
+<div class="container", style="background: white; margin: 20px; border-radius: 6px;">
   <h2>Add a new Loo</h2>
 
   <%= simple_form_for @loo do |f| %>

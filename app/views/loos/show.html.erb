@@ -83,13 +83,13 @@
 
   <%# // RATING CONTAINER // %>
   <% if @loo.reviews.present? %>
-    <div class="rating-container">
+    <div>
       <div class="row">
         <div class="col-12", style="padding-bottom: 20px;">
           <h4>Ratings</h4>
           <div class="d-flex flex-column">
             <div class="category-card", style="margin-top: 15px;" >
-              <p>Cleanlines 🧽</p>
+              <p>Cleanliness 🧽</p>
               <div class="d-flex align-items-center">
                 <div class="c-score-bar rounded">
                   <div class="c-score-bar-value rounded" style="width:<%= @loo.average_cleanliness_rating * 10 %>%"></div>

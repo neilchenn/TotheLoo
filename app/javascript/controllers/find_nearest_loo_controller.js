@@ -1,10 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
 
-// I need to do
-// @loos = Loo.near([position.coords.latitude, position.coords.longitude], 20, order: distance)
-
-// @loos = Loo.near([current_user.latitude, current_user.longitude], 20, order: distance)
-
 export default class extends Controller {
   connect() {
     console.log("nearest loo connected")
@@ -52,7 +47,4 @@ export default class extends Controller {
     this.element.href += `?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
     //console.log(`Latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`);
   }
-
-
-
 }

@@ -1,0 +1,21 @@
+<div class="container", style="background: white; margin: 20px; border-radius: 6px;">
+  <%= link_to loos_path do %>
+    <i class="far fa-times-circle", style="position: absolute; right: 10px;top: 0px;" ></i>
+  <% end %>
+
+  <h2>Add a new Loo</h2>
+
+  <%= simple_form_for @loo do |f| %>
+    <h5><%= f.input :name, label: "Toilet", placeholder: "Enter a name, eg. Richmond BP" %></h5>
+    <h5><%= f.input :address %></h5>
+    <%= f.input :parking %>
+    <%= f.input :accessible %>
+    <%= f.input :baby_change %>
+    <%= f.input :male %>
+    <%= f.input :female %>
+    <%= f.input :unisex %>
+    <h5><%= f.input :opening_hours, placeholder: "Monday-Friday, 9am-5pm" %></h5>
+    <%= f.button :submit, "Submit!", id:"sweet-alert-demo", class:"btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto" %>
+  <% end %>
+  </div>
+</div>

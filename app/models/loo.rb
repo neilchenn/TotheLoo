@@ -4,11 +4,13 @@ class Loo < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :name, presence: true
   validates :address, presence: true
-  validates :latitude, presence: true, uniqueness: true
-  validates :longitude, presence: true, uniqueness: true
+  validate :address_geolocation
+  validates :latitude, presence: true
+  validates :longitude, presence: true
+  before_save :capitalize_name, :capitalize_address
 
   geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  before_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
   pg_search_scope :search_by_loo_fields,
@@ -59,11 +61,19 @@ class Loo < ApplicationRecord
     # return reviews.sum(:star_rating).fdiv(reviews.count).to_i
   end
 
+  def capitalize_name
+    self.name = self.name.split.collect(&:capitalize).join(' ') if self.name && !self.name.blank?
+  end
 
+  def capitalize_address
+    self.address = self.address.split.collect(&:capitalize).join(' ') if self.address && !self.address.blank?
+  end
 
-  def average_rating
-    # logic for calculating averages
-    # return hash value for averages
+  private
+
+  def address_geolocation
+    errors.add(:address, "is not valid") unless geocoded?
+    errors.add(:address, "is already taken") if Loo.where(longitude: longitude).and(Loo.where(latitude: latitude)).exists?
   end
 
 end

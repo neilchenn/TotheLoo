@@ -20,6 +20,7 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
+      center: [144.9971274207717, -37.830719010],
       zoom: 12
     })
 
@@ -56,10 +57,13 @@ export default class extends Controller {
         unit: 'metric',
         controls: {
           // instructions: false
+          // inputs: true
         },
+        placeholderOrigin: "Current Location",
         //steps: true,
         //banner_instructions: true,
       })
+
 
       this.map.addControl(
         this.directions,

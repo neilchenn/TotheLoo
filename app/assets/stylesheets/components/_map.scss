@@ -6,3 +6,13 @@
   text-align: left;
   font-family: $body-font;
 }
+
+.mapbox-directions-instructions {
+  display: none;
+}
+
+.mapboxgl-ctrl-top-left {
+  position: fixed;
+  left: 27px;
+  top: 10px;
+}

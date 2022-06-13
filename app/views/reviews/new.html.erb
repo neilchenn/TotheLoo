@@ -1,7 +1,7 @@
 
 
  <%# // RATING CONTAINER - flex to be added later // %>
-<div class="container" style="position: relative; margin: 20px;">
+<div class="container" style="position: relative; margin: 20px; background: white; border-radius: 6px;">
  <%= link_to loos_path do %>
     <i class="far fa-times-circle", style="position: absolute; right: 15px;top: 0px;" ></i>
   <% end %>
@@ -14,7 +14,7 @@
 
         <h2>Review this loo!</h2>
         <br>
-        
+
         <div data-conroller="display-range-value">
         <h5>
           <%= f.input :cleanliness, label: "Cleanliness 🧻", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>

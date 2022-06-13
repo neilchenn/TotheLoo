@@ -21,16 +21,17 @@ import { hide } from "@popperjs/core"
 
 // local imports
 
-import { initSweetalert } from '../plugins/init_sweetalert';
-
-initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
-  icon: "success"
-});
 
 import { initHideLoadingScreen } from "../components/init_hide_loading_screen"
 
 document.addEventListener('turbolinks:load', (event) => {
   initHideLoadingScreen(event)
-})
+});
+
+import { initSweetalert } from '../components/init_sweetalert';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Your Loo has been added!",
+  text: "Until wee meet again..totheLoo",
+  icon: "success"
+});

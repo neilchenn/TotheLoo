@@ -20,19 +20,17 @@ import "bootstrap"
 import { hide } from "@popperjs/core"
 
 // local imports
+
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "A nice alert",
+  text: "This is a great alert, isn't it?",
+  icon: "success"
+});
+
 import { initHideLoadingScreen } from "../components/init_hide_loading_screen"
 
 document.addEventListener('turbolinks:load', (event) => {
-  console.log('turbolinks:load')
-  console.log(event)
   initHideLoadingScreen(event)
 })
-
-document.addEventListener('turbolinks:before-render', (event) => {
-  console.log('turbolinks:before-render')
-  console.log(event)
-})
-
-document.addEventListener('DOMContentLoaded', (event) => {
-  console.log('DOMcontent')
-}, false);

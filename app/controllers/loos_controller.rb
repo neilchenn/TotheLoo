@@ -67,9 +67,9 @@ class LoosController < ApplicationController
   end
 
   def nearest_loo
-    @nearest_loo = Loo.near([params[:latitude], params[:longitude]], 20, units: :km).first
-    @markers = [@nearest_loo]
     # raise
+    @nearest_loo = Loo.near([params[:latitude], params[:longitude]]).first
+    @markers = [@nearest_loo]
     redirect_to loo_path(@nearest_loo)
     # redirect_to root_path
   end

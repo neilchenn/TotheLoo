@@ -37,7 +37,13 @@
 <p> <i class="fas fa-star " ></i>
  <%= loo.average_star_rating %></p>
 
+<p>
+  <% destination_coordinates = [loo.latitude, loo.longitude] %>
+  <% current_coordinates = Geocoder.coordinates(coords.latitude, coords.longitude) %>
+  <% distance = Geocoder::Calculations.distance_between(destination_coordinates, current_coordinates) %>
 
+  Distance from me: <%= distance %>
+</p>
 
 
 

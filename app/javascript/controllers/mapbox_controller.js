@@ -32,7 +32,7 @@ export default class extends Controller {
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true,
         }),
-        "top-right"
+        "bottom-right"
       );
 
       // To get the current position

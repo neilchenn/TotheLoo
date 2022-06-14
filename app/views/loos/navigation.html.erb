@@ -1,7 +1,8 @@
 <div style="width: 100%; height: 700px;"
         data-controller="mapbox-directions"
         data-mapbox-directions-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-        data-mapbox-directions-destination-value="<%= [@loo.longitude, @loo.latitude] %>">
+        data-mapbox-directions-destination-value="<%= [@loo.longitude, @loo.latitude] %>"
+        data-mapbox-directions-loo-name-value="<%= @loo.name %>">
 </div>
 
 <div class="d-flex main-button flex-row justify-content-center align-items-center" style="width: 100%">

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       get :nearest_loo
     end
   end
+  get '/my_favorites', to: 'dashboard#my_favorites', as: :my_favorites
 end

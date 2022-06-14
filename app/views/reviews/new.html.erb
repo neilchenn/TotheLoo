@@ -1,8 +1,11 @@
 
 
  <%# // RATING CONTAINER - flex to be added later // %>
-  <%= link_to loos_path, class:"text-decoration-none" do %>
-  <div class="d-flex justify-content-end mb-1 fs-1" style="padding-right: 19px; padding-top: 13px;">
+
+<div class="container" style="position: relative; margin: 20px; background: white; border-radius: 6px;">
+ <%= link_to loos_path, class:"text-decoration-none" do %>
+  <div class="d-flex justify-content-end mb-1 fs-1">
+
     <i class="far fa-times-circle"></i>
   </div>
   <% end %>
@@ -53,7 +56,7 @@
         </div>
         <div class="d-flex justify-content-center" style="width: 100%;">
           <div class="main-button">
-        <%= f.submit class: "btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
+        <%= f.button :submit, "Submit!", class: "btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
           </div>
         </div>
       <% end %>

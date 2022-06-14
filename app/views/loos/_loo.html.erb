@@ -1,8 +1,11 @@
-<div class="mb-2 border border-2 p-3" style="border-radius: 4px;">
-  <h1>
+<div class="mb-3 border border-info border border-3 border border p-3 ", style="border-radius: 15px">
+  <h1 style="margin-bottom: 0">
     <%= loo.name %>
+
   </h1>
-  <p>
+  <strong><%= loo.address %></strong>
+
+  <p style="margin-top: 17px">
     <strong>Facility Type:</strong>
     <%= loo.facility_type %>
   </p>
@@ -36,13 +39,13 @@
     <i class="fas fa-restroom ms-1"></i>
     <% end %>
   <p>
-    <strong>Address:</strong>
-    <%= loo.address %>
+
+
   </p>
   <p> <i class="fas fa-star " ></i>
   <%= loo.average_star_rating %></p>
 
-  <%= link_to 'Pick Me', loo_path(loo), class: "btn btn-outline-primary btn-sm border-3"%>
+  <%= link_to 'Pick Me', loo_path(loo), class: "btn btn-outline-primary btn-sm border-3", style: "width:150px" %>
 
 
 </div>

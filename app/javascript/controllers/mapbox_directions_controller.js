@@ -10,7 +10,8 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     destination: Array,
-    origin: Array
+    origin: Array,
+    looName: String,
   }
 
   connect() {
@@ -25,27 +26,11 @@ export default class extends Controller {
     })
 
     this.map.on('load', this.onMapLoad.bind(this))
-      // // Add geolocate control to the map.
-      // this.map.addControl(
-      //   new mapboxgl.GeolocateControl({
-      //   positionOptions: {
-      //     enableHighAccuracy: true
-      //   },
-      //   // When active the map will receive updates to the device's location as it changes.
-      //   trackUserLocation: true,
-      //   // Draw an arrow next to the location dot to indicate which direction the device is heading.
-      //   showUserHeading: true,
-      //   }),
-      //   'bottom-right',
-      // );
-
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(position => {
           const startingLocationInput = document.querySelector('#mapbox-directions-origin-input input')
           if (startingLocationInput) {
             this.originValue = [position.coords.longitude, position.coords.latitude]
-           // const originInput = `${origin[0]}, ${origin[1]}`
-            //startingLocationInput.value = origin
             this.directions.setOrigin(this.originValue)
           }
         })
@@ -70,17 +55,21 @@ export default class extends Controller {
         'top-left'
       );
 
+      window.directions = this.directions
+
       this.map.on('load', () => {
         this.directions.setDestination(this.destinationValue)
+        document.querySelector("#mapbox-directions-origin-input input").value = "Current location"
+        document.querySelector("#mapbox-directions-destination-input input").value = this.looNameValue
       })
   }
 
   onMapLoad(e) {
     this.destinationInput = document.querySelector("#mapbox-directions-destination-input input")
-    this.destinationInput.value = `${this.destinationValue[0]}, ${this.destinationValue[1]}`
 
     this.originInput = document.querySelector("#mapbox-directions-origin-input input")
     this.originInput.value = `${this.originValue[0]}, ${this.originValue[1]}`
+    this.destinationInput.value = `${this.destinationValue[0]}, ${this.destinationValue[1]}`
   }
 
   #fitMapToMarkers() {

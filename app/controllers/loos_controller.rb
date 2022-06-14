@@ -57,13 +57,13 @@ class LoosController < ApplicationController
 
   def favourite
     @loo = Loo.find(params[:id])
-    current_user.favorite @loo #might need a bracket
+    current_user.favorite(@loo) #might need a bracket
     redirect_back(fallback_location: loo_path(@loo))
   end
 
   def unfavourite
     @loo = Loo.find(params[:id])
-    current_user.unfavorite @loo
+    current_user.unfavorite(@loo)
     redirect_back(fallback_location: loo_path(@loo))
   end
 

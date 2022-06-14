@@ -1,12 +1,15 @@
 
 
  <%# // RATING CONTAINER - flex to be added later // %>
+
 <div class="container" style="position: relative; margin: 20px; background: white; border-radius: 6px;">
  <%= link_to loos_path, class:"text-decoration-none" do %>
   <div class="d-flex justify-content-end mb-1 fs-1">
+
     <i class="far fa-times-circle"></i>
   </div>
   <% end %>
+<div class="container" style="position: relative; margin: 20px; margin-top: 0px; background: white; border-radius: 6px;">
 <h1><%= @loo.name %></h1>
 
   <div class="row">
@@ -19,7 +22,7 @@
 
         <div data-conroller="display-range-value">
         <h5>
-          <%= f.input :cleanliness, label: "Cleanliness 🧻", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
+          <%= f.input :cleanliness, label: "Cleanliness 🧽", input_html: { data: { action: "change->display-range-value#updateValue" }, type: 'range', class: "form-range border-0", min:"0", max:"10", step:"1" } %>
         </h5>
           <span class="d-flex justify-content-between "><p >0</p><p>5</p><p>10</p></span>
           <p data-display-range-value-target="rangeCounter" class= border-0></p>
@@ -51,13 +54,11 @@
             <span class="d-flex justify-content-between"><p >0</p><p>5</p><p>10</p></span>
             <p data-display-range-value-target="rangeCounter"></p>
         </div>
-
         <div class="d-flex justify-content-center" style="width: 100%;">
           <div class="main-button">
         <%= f.button :submit, "Submit!", class: "btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
           </div>
         </div>
-
       <% end %>
 
     </div>

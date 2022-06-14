@@ -19,8 +19,13 @@
 
 
 
-.mapboxgl-ctrl-top-right {
-  position:absolute;
-  top: 69px;
+.mapboxgl-ctrl-bottom-right {
+  position: fixed;
+  bottom: 27px;
   right: 0px;
+}
+
+
+.mapboxgl-compact {
+  display: none;
 }

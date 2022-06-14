@@ -27,9 +27,13 @@
           <i class="fas fa-bars"></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Login</a></li>
-          <li><a class="dropdown-item" href="#">Favourite loos</a></li> <%#  Add link to here for new loo %>
-          <li><a class="dropdown-item" href="#">Add a loo</a></li>
+        <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, :method=>'delete', class:"dropdown-item" %>
+        <% else %>
+          <%= link_to "login", new_user_session_path, class:"dropdown-item" %>
+        <% end %>
+          <li><a class="dropdown-item" href="my_favorites">Favourite loos</a></li> <%#  Add link to here for new loo %>
+          <li><a class="dropdown-item" href="loos/new">Add a loo</a></li>
         </ul>
       </div>
 

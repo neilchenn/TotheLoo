@@ -1,12 +1,12 @@
 
 
  <%# // RATING CONTAINER - flex to be added later // %>
-<div class="container" style="position: relative; margin: 20px; background: white; border-radius: 6px;">
- <%= link_to loos_path do %>
-  <div class="d-flex justify-content-end mb-1 fs-3" style="padding-right: 10px">
+  <%= link_to loos_path, class:"text-decoration-none" do %>
+  <div class="d-flex justify-content-end mb-1 fs-1" style="padding-right: 23px; padding-top: 20px;">
     <i class="far fa-times-circle"></i>
   </div>
   <% end %>
+<div class="container" style="position: relative; margin: 20px; margin-top: 0px; background: white; border-radius: 6px;">
 <h1><%= @loo.name %></h1>
 
   <div class="row">

@@ -4,13 +4,15 @@
         data-mapbox-directions-destination-value="<%= [@loo.longitude, @loo.latitude] %>">
 </div>
 
- <div style="width: 100%;">
-  <div class="main-button d-flex justify-content-center">
+<div class="d-flex main-button flex-row justify-content-center align-items-center" style="width: 100%">
+  <div>
     <%= link_to loo_path(@loo), class:"text-decoration-none" do %>
-    <div class="btn btn-3 btn-outline-primary btn-sm border-3">
-      <i class="fas fa-times back d-flex align-items-center"></i>
-    </div>
-    <% end %>
+      <div class="btn btn-3 btn-outline-primary btn-sm border-3">
+        <i class="fas fa-times back d-flex align-items-center"></i>
+      <% end %>
+      </div>
+  </div>
+  <div>
     <%= link_to "Leave a review!", new_loo_review_path(@loo), class:"btn btn-primary text-warning" %>
-    </div>
+  </div>
 </div>

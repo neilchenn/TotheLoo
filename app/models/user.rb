@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :loos, dependent: :destroy
   has_many :reviews, dependent: :destroy
   acts_as_favoritor
+  has_many :favorite_loos, through: :favorites, source: :favoritable, source_type: "Loo"
 end

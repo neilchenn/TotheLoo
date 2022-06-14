@@ -4,7 +4,6 @@ class LoosController < ApplicationController
 
   def index
     @loos = Loo.all
-    # @loos = Loo.near([params[:latitude], params[:longitude]], 20, units: :km)
     if params[:query].present?
       @loos = Loo.geocoded.search_by_loo_fields(params[:query])
     else
@@ -21,7 +20,6 @@ class LoosController < ApplicationController
 
   def show
     @loo = Loo.find(params[:id])
-    # fetch_average_reviews(@loo) if @loo.reviews.present?
   end
 
   def new

@@ -5,10 +5,8 @@
   </div>
 
   <div class="container">
-    <% @favorites.each do |loo| %>
-      <% raise %>
-      <%= loo.name %>
-      <%= loo.address %>
+    <% @favorite_loos.each do |loo| %>
+      <%= render 'loos/loo', loo: loo %>
     <% end %>
   </div>
 

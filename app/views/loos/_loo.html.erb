@@ -1,9 +1,7 @@
 <div class="mb-3 border border-info border border-3 border border p-3 ", style="border-radius: 15px">
-
-  <h2 style="margin-bottom: 0">
-    <%= loo.name %>
-
-  </h2>
+    <h2 style="margin-bottom: 0">
+      <%= loo.name %>
+    </h2>
   <strong><%= loo.address %></strong>
 
   <p style="margin-top: 17px">
@@ -46,7 +44,14 @@
   <p> <i class="fas fa-star " ></i>
   <%= loo.average_star_rating %></p>
 
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
   <%= link_to 'Pick Me', loo_path(loo), class: "btn btn-outline-primary btn-sm border-3", style: "width:150px" %>
-
-
+    </h2>
+    </div>
+    <div>
+    <button id="sweet-alert-demo" class="btn btn-danger"><i class="fas fa-heart fs-3" style="padding-right: 10px;"></i></button>
+    <%= link_to "", unfavourite_loo_path(loo), method: :delete, id: "delete-link", class: "hidden", remote: true %>
+    </div>
+  </div>
 </div>

@@ -40,13 +40,99 @@ export default class extends Controller {
       this.directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
-        controls: {
-          // instructions: false
-          // inputs: true
-        },
         placeholderOrigin: "Current Location",
-        //steps: true,
-        //banner_instructions: true,
+        styles: [{
+          'id': 'directions-route-line-alt',
+          'type': 'line',
+          'source': 'directions',
+          'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+          },
+          'paint': {
+            'line-color': '#4882c5',
+            'line-width': 8
+          },
+          'filter': [
+            'all',
+            ['in', '$type', 'LineString'],
+            ['in', 'route', 'alternate']
+          ]
+        }, {
+          'id': 'directions-route-line-casing',
+          'type': 'line',
+          'source': 'directions',
+          'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+          },
+          'paint': {
+            'line-color': '#4882c5',
+            'line-width': 8
+          },
+          'filter': [
+            'all',
+            ['in', '$type', 'LineString'],
+            ['in', 'route', 'selected']
+          ]
+        }, {
+          'id': 'directions-route-line',
+          'type': 'line',
+          'source': 'directions',
+          'layout': {
+            'line-cap': 'butt',
+            'line-join': 'round'
+          },
+          'paint': {
+            'line-color': {
+              'property': 'congestion',
+              'type': 'categorical',
+              'default': '#4882c5',
+              'stops': [
+                ['unknown', '#4882c5'],
+                ['low', '#4882c5'],
+                ['moderate', '#4882c5'],
+                ['heavy', '#4882c5'],
+                ['severe', '#4882c5']
+              ]
+            },
+            'line-width': 8
+          },
+          'filter': [
+            'all',
+            ['in', '$type', 'LineString'],
+            ['in', 'route', 'selected']
+          ]
+        },
+        {
+          'id': 'directions-destination-point',
+          'type': 'circle',
+          'source': 'directions',
+          'paint': {
+            'circle-radius': 18,
+            'circle-color': '#cf83A6'
+          },
+          'filter': [
+            'all',
+            ['in', '$type', 'Point'],
+            ['in', 'marker-symbol', 'B']
+          ]
+        },
+        {
+          'id': 'directions-origin-point',
+          'type': 'circle',
+          'source': 'directions',
+          'paint': {
+            'circle-radius': 18,
+            'circle-color': '#f8de60'
+          },
+          'filter': [
+            'all',
+            ['in', '$type', 'Point'],
+            ['in', 'marker-symbol', 'A']
+          ]
+        },
+        ]
       })
 
 

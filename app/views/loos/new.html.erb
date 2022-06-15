@@ -9,85 +9,80 @@
   <%# // Bootstrap floating label // %>
   <%# ------------------------------- %>
 
-<%= simple_form_for @loo do |f| %>
-  <div class="form-floating mb-3">
-    <%= f.text_field :name, class:"form-control", placeholder:"Loo name:" %>
-    <%= f.label :name, "Loo name: eg. Richmond BP" %>
-  </div>
-  <div class="form-floating mb-3">
-    <%= f.text_field :address, class:"form-control", placeholder:"Address:" %>
-    <%= f.label :address, "Address:" %>
-  </div>
+  <%= simple_form_for @loo do |f| %>
+    <div class="form-floating mb-3">
+      <%= f.text_field :name, class:"form-control", placeholder:"Loo name:" %>
+      <%= f.label :name, "Loo name: eg. Richmond BP" %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :address, class:"form-control", placeholder:"Address:" %>
+      <%= f.label :address, "Address:" %>
+    </div>
 
-  <%# <%= f.select(:object_field, ['Item 1', ...], {}, { :class => 'my_style_class' }) %>
-  <div class="form-floating mb-3">
-    <%= f.select :facility_type, ["Airport", "Beach", "Food Outlet", "Park and Reserve",
-                                   "Service Station", "Shopping Centre", "Train Station", "Other"],
-                                  {include_blank: "Select a facility type"},
-                                  {class:"form-control", style:"padding-top: 10px;", placeholder:"Facility type:"} %>
-  </div>
-  <div class= "d-flex flex-wrap align-items-start flex-column mb-3 ">
-    <div class="form-check">
-      <%= f.check_box :parking, class: "form-check-input" %>
-      <%= f.label :parking, class: "form-check-label" do %>
-        <i  class="fas fa-parking"></i> Parking
-      <% end %>
+    <div class="form-floating mb-3">
+      <%= f.select :facility_type, ["Airport", "Beach", "Food Outlet", "Park and Reserve",
+                                    "Service Station", "Shopping Centre", "Train Station", "Other"],
+                                    {include_blank: "Select a facility type"},
+                                    {class:"form-control", style:"padding-top: 10px;", placeholder:"Facility type:"} %>
     </div>
-    <br>
-    <div class="form-check">
-      <%= f.check_box :accessible, class: "form-check-input" %>
-      <%= f.label :accessible, class: "form-check-label" do %>
-        <i  class="fas fa-wheelchair"></i> Accessible
-      <% end %>
-    </div>
-    <br>
-    <div class="form-check">
-      <%= f.check_box :baby_change, class: "form-check-input" %>
-      <%= f.label :baby_change, class: "form-check-label" do %>
-        <i  class="fas fa-baby"></i> Baby Change
-      <% end %>
-    </div>
-    <br>
-    <div class="form-check">
-      <%= f.check_box :male, class: "form-check-input" %>
-      <%= f.label :male, class: "form-check-label" do %>
-        <i  class="fas fa-male"></i> Male
-      <% end %>
-    </div>
-    <br>
-    <div class="form-check">
-      <%= f.check_box :female, class: "form-check-input" %>
-      <%= f.label :female, class: "form-check-label" do %>
-        <i  class="fas fa-female"></i> Female
-      <% end %>
-    </div>
-    <br>
-    <div class="form-check">
-      <%= f.check_box :unisex, class: "form-check-input" %>
-      <%= f.label :unisex, class: "form-check-label" do %>
-        <i  class="fas fa-restroom"></i> Unisex
-      <% end %>
-    </div>
-  </div>
-
-  <div class="form-floating mb-3">
-    <%= f.text_field :opening_hours, class:"form-control", placeholder:"opening_hours:" %>
-    <%= f.label :opening_hours, "Opening hours: eg. Mon-Fr, 9am to 5pm" %>
-  </div>
-  <div class="d-flex justify-content-center" style="width: 100%;">
-    <br>
-    <div class="main-button">
-      <%= f.button :submit, "Submit!", id:"sweet-alert-demo", class:"btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
-    </div>
-      <div class="d-flex justify-content-center" style="width: 100%;">
-      <br>
-        <div class="main-button">
-          <%= f.button :submit, "Submit!", id: "confetti_button", class:"btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
-        </div>
-
+    <div class= "d-flex flex-wrap align-items-start flex-column mb-3 ">
+      <div class="form-check">
+        <%= f.check_box :parking, class: "form-check-input" %>
+        <%= f.label :parking, class: "form-check-label" do %>
+          <i  class="fas fa-parking"></i> Parking
+        <% end %>
       </div>
+      <br>
+      <div class="form-check">
+        <%= f.check_box :accessible, class: "form-check-input" %>
+        <%= f.label :accessible, class: "form-check-label" do %>
+          <i  class="fas fa-wheelchair"></i> Accessible
+        <% end %>
+      </div>
+      <br>
+      <div class="form-check">
+        <%= f.check_box :baby_change, class: "form-check-input" %>
+        <%= f.label :baby_change, class: "form-check-label" do %>
+          <i  class="fas fa-baby"></i> Baby Change
+        <% end %>
+      </div>
+      <br>
+      <div class="form-check">
+        <%= f.check_box :male, class: "form-check-input" %>
+        <%= f.label :male, class: "form-check-label" do %>
+          <i  class="fas fa-male"></i> Male
+        <% end %>
+      </div>
+      <br>
+      <div class="form-check">
+        <%= f.check_box :female, class: "form-check-input" %>
+        <%= f.label :female, class: "form-check-label" do %>
+          <i  class="fas fa-female"></i> Female
+        <% end %>
+      </div>
+      <br>
+      <div class="form-check">
+        <%= f.check_box :unisex, class: "form-check-input" %>
+        <%= f.label :unisex, class: "form-check-label" do %>
+          <i  class="fas fa-restroom"></i> Unisex
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-floating mb-3">
+      <%= f.text_field :opening_hours, class:"form-control", placeholder:"opening_hours:" %>
+      <%= f.label :opening_hours, "Opening hours: eg. Mon-Fr, 9am to 5pm" %>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 100%;">
+      <br>
+      <div class="main-button">
+        <%= f.button :submit, "Submit!", id:"sweet-alert-demo", class:"btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
+      </div>
+      <div class="d-flex justify-content-center" style="width: 100%;">
+        <br>
+          <div class="main-button">
+            <%= f.button :submit, "Submit!", id: "confetti_button", class:"btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
+      </div>
+    </div>
   <% end %>
-  </div>
-<% end %>
-  </div>
 </div>

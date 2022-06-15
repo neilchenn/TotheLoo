@@ -16,14 +16,15 @@ export default class extends Controller {
 
 
   connect() {
-    const center = this.coordinatesValue.lat ? this.coordinatesValue : [144.9971274207717, -37.830719010]
+    const center = [144.9971274207717, -37.830719010]
+    // this.coordinatesValue.lat ? this.coordinatesValue : [144.9971274207717, -37.830719010]
     mapboxgl.accessToken = this.apiKeyValue
     console.log(this.coordinatesValue)
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
       center: center,
-      zoom: 12
+      zoom: 14
     })
 
 

@@ -7,32 +7,25 @@
 <div class="container ", style="background: white; margin: 20px; margin-top: 0px; border-radius: 6px; position: relative;">
   <h2>Add a new Loo</h2>
   <%# // Bootstrap floating label // %>
-  <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="floatingInput" placeholder="Loo name">
-    <label for="floatingInput">Toilet name: eg. Richmond BP</label>
-  </div>
-  <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="floatingInput" placeholder="Address">
-    <label for="floatingInput">Address</label>
-  </div>
-
-  <div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Airport</option>
-    <option value="1">Beach</option>
-    <option value="2">Food Outlet</option>
-    <option value="3">Park and Reserve</option>
-    <option value="4">Service Station</option>
-    <option value="5">Shopping Centre</option>
-    <option value="6">Traing Station</option>
-    <option value="7">Other</option>
-  </select>
-  <label for="floatingSelect">Facility Type</label>
-</div>
-<br>
   <%# ------------------------------- %>
 
 <%= simple_form_for @loo do |f| %>
+  <div class="form-floating mb-3">
+    <%= f.text_field :name, class:"form-control", placeholder:"Loo name:" %>
+    <%= f.label :name, "Loo name: eg. Richmond BP" %>
+  </div>
+  <div class="form-floating mb-3">
+    <%= f.text_field :address, class:"form-control", placeholder:"Address:" %>
+    <%= f.label :address, "Address:" %>
+  </div>
+
+  <%# <%= f.select(:object_field, ['Item 1', ...], {}, { :class => 'my_style_class' }) %>
+  <div class="form-floating mb-3">
+    <%= f.select :facility_type, ["Airport", "Beach", "Food Outlet", "Park and Reserve",
+                                   "Service Station", "Shopping Centre", "Train Station", "Other"],
+                                  {include_blank: "Select a facility type"},
+                                  {class:"form-control", style:"padding-top: 10px;", placeholder:"Facility type:"} %>
+  </div>
   <div class= "d-flex flex-wrap align-items-start flex-column mb-3 ">
     <div class="form-check">
       <%= f.check_box :parking, class: "form-check-input" %>
@@ -78,8 +71,8 @@
   </div>
 
   <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="floatingInput" placeholder="Opening hours">
-    <label for="floatingInput">Opening hours: eg. Mon-Fr, 9am to 5pm</label>
+    <%= f.text_field :opening_hours, class:"form-control", placeholder:"opening_hours:" %>
+    <%= f.label :opening_hours, "Opening hours: eg. Mon-Fr, 9am to 5pm" %>
   </div>
   <div class="d-flex justify-content-center" style="width: 100%;">
     <br>

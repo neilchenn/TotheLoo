@@ -29,7 +29,6 @@ class LoosController < ApplicationController
   def create
     @loo = Loo.new(loo_params)
     @loo.user_id = current_user.id
-    raise
     if @loo.save
       redirect_to root_path
     else

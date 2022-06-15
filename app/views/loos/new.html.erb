@@ -15,6 +15,21 @@
     <input type="text" class="form-control" id="floatingInput" placeholder="Address">
     <label for="floatingInput">Address</label>
   </div>
+
+  <div class="form-floating">
+  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+    <option selected>Airport</option>
+    <option value="1">Beach</option>
+    <option value="2">Food Outlet</option>
+    <option value="3">Park and Reserve</option>
+    <option value="4">Service Station</option>
+    <option value="5">Shopping Centre</option>
+    <option value="6">Traing Station</option>
+    <option value="7">Other</option>
+  </select>
+  <label for="floatingSelect">Facility Type</label>
+</div>
+<br>
   <%# ------------------------------- %>
 
 <%= simple_form_for @loo do |f| %>

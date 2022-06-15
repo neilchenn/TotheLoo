@@ -1,5 +1,5 @@
 class LoosController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, except: [:new, :favorite, :unfavorite, :create, :destroy]
   skip_before_action :show_navbar!, only: :index
 
   def index
@@ -7,12 +7,12 @@ class LoosController < ApplicationController
     if params[:query].present?
       @loos = Loo.geocoded.search_by_loo_fields(params[:query])
     else
-      @loos = Loo.geocoded #.near([session[:latitude], session[:longitude]], 35)
+      @loos = Loo.geocoded
     end
     @markers = @loos.map do |loo| {
       lat: loo.latitude,
       lng: loo.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { loo: loo }), # can someone explain this line
+      info_window: render_to_string(partial: "info_window", locals: { loo: loo }),
       image_url: helpers.asset_url("loo.png")
     }
     end
@@ -49,13 +49,11 @@ class LoosController < ApplicationController
 
   def navigation
     @loo = Loo.find(params[:id])
-
-    # @loo = Loo.near([params[:latitude], params[:longitude]], 20, units: :km).first
   end
 
   def favourite
     @loo = Loo.find(params[:id])
-    current_user.favorite(@loo) #might need a bracket
+    current_user.favorite(@loo)
     redirect_back(fallback_location: loo_path(@loo))
   end
 
@@ -66,11 +64,9 @@ class LoosController < ApplicationController
   end
 
   def nearest_loo
-    # raise
     @nearest_loo = Loo.near([params[:latitude], params[:longitude]], 10000).first
     @markers = [@nearest_loo]
     redirect_to loo_path(@nearest_loo)
-    # redirect_to root_path
   end
 
   private

@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+import { csrfToken } from "@rails/ujs";
 
 
 
@@ -9,15 +10,21 @@ import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-direct
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    coordinates: Object
   }
 
-  connect() {
-    mapboxgl.accessToken = this.apiKeyValue
 
+  connect() {
+    const center = [144.9971274207717, -37.830719010]
+    // this.coordinatesValue.lat ? this.coordinatesValue : [144.9971274207717, -37.830719010]
+    mapboxgl.accessToken = this.apiKeyValue
+    console.log(this.coordinatesValue)
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
+      center: center,
+      zoom: 14
     })
 
 
@@ -39,8 +46,10 @@ export default class extends Controller {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(position => {
           console.log(position)
+          this.#patchUserLocation(position)
           const startingLocationInput = document.querySelector('#mapbox-directions-origin-input input')
           if (startingLocationInput) {
+
             startingLocationInput.value = `${position.coords.latitude}, ${position.coords.longitude}`
           }
         })
@@ -49,7 +58,7 @@ export default class extends Controller {
       // this.map.Geolocation.getCurrentPosition();
 
     this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    // this.#fitMapToMarkers()
   }
 
   #addMarkersToMap() {
@@ -81,6 +90,13 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: {top: 10, bottom:25, left: 15, right: 5}
       , maxZoom: 15, duration: 0 })
+  }
+
+  #patchUserLocation(position) {
+    fetch(`/user/location?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`, {
+      method: 'PATCH',
+      headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() }
+    })
   }
 
 

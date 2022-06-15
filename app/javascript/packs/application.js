@@ -34,7 +34,13 @@ document.addEventListener('turbolinks:load', (event) => {
 import { initSweetalert } from '../components/init_sweetalert';
 
 initSweetalert('#sweet-alert-demo', {
-  title: "Your Loo has been added!",
-  text: "Until wee meet again..totheLoo",
-  icon: "success"
+  title: "Are you sure?",
+  text: "This loo will be permanently deleted from your favorites",
+  icon: "warning"
+}, (value) => {
+  console.log("clicked");
+  if (value) {
+    const link = document.querySelector('#delete-link');
+    link.click();
+  }
 });

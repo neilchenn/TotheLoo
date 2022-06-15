@@ -3,7 +3,7 @@
   font-weight: 800;
   padding: 0.475rem 0.75rem;
   border-radius: 50px;
-  
+
 
 }
 
@@ -27,7 +27,10 @@
   &:hover {
     color: rgb(45, 42, 42);
     background: $primary;
-
-
+  }
 }
+
+#sweet-alert-demo {
+  border: none;
+  background: none;
 }

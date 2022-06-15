@@ -60,7 +60,11 @@ class LoosController < ApplicationController
   def unfavourite
     @loo = Loo.find(params[:id])
     current_user.unfavorite(@loo)
-    redirect_back(fallback_location: loo_path(@loo))
+    if request.path == "/my_favorites"
+      redirect_to my_favorites_path
+    else
+      redirect_back(fallback_location: loo_path(@loo))
+    end
   end
 
   def nearest_loo

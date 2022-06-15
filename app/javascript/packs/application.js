@@ -24,9 +24,11 @@ import { hide } from "@popperjs/core"
 
 
 import { initHideLoadingScreen } from "../components/init_hide_loading_screen"
+import { initConfetti } from "../components/init_confetti"
 
 document.addEventListener('turbolinks:load', (event) => {
-  initHideLoadingScreen(event)
+  initHideLoadingScreen(event);
+  initConfetti();
 });
 
 import { initSweetalert } from '../components/init_sweetalert';

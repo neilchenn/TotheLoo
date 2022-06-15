@@ -5,6 +5,7 @@
 .mapboxgl-popup-content {
   text-align: left;
   font-family: $body-font;
+  border-radius: 15px;
 }
 
 .mapbox-directions-instructions {
@@ -29,3 +30,12 @@
 .mapboxgl-compact {
   display: none;
 }
+
+{
+  'id': 'directions-origin-point',
+  'type': 'circle',
+  'source': 'directions',
+  'paint': {
+    'circle-radius': 18,
+    'circle-color': '#3bb2d0'
+  },

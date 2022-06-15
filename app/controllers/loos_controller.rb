@@ -7,7 +7,7 @@ class LoosController < ApplicationController
     if params[:query].present?
       @loos = Loo.geocoded.search_by_loo_fields(params[:query])
     else
-      @loos = Loo.geocoded
+      @loos = Loo.geocoded.near([session[:latitude], session[:longitude]], 35)
     end
     @markers = @loos.map do |loo| {
       lat: loo.latitude,

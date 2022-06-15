@@ -63,7 +63,8 @@
       <div style="width: 100%; height: 100%;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-mapbox-coordinates-value="<%= {lng: session[:longitude], lat: session[:latitude]}.to_json %>">
       </div>
       <%# map overlay at the bottom of page %>
       <div class="d-flex justify-content-center" style="width: 100%;">

@@ -23,13 +23,13 @@ end
 require "open-uri"
 require "json"
 
-url_richmond = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=richmond&limit=20"
+url_richmond = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC&q=richmond"
 
 buffer_richmond = URI.open(url_richmond).read
 data_richmond = JSON.parse(buffer_richmond)["result"]["records"]
 
 data_richmond.each do |loo|
-  Loo.create!(
+  Loo.create(
     facility_type: loo["FacilityType"],
     name: loo["Name"],
     address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
@@ -46,13 +46,13 @@ data_richmond.each do |loo|
   )
 end
 
-url_melbourne = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=melbourne&limit=20"
+url_melbourne = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC&q=melbourne"
 
 buffer_melbourne = URI.open(url_melbourne).read
 data_melbourne = JSON.parse(buffer_melbourne)["result"]["records"]
 
 data_melbourne.each do |loo|
-  Loo.create!(
+  Loo.create(
     facility_type: loo["FacilityType"],
     name: loo["Name"],
     address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
@@ -69,13 +69,13 @@ data_melbourne.each do |loo|
   )
 end
 
-url_barham = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=barham&limit=20"
+url_cremorne = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC&q=cremorne"
 
-buffer_barham = URI.open(url_barham).read
-data_barham = JSON.parse(buffer_barham)["result"]["records"]
+buffer_cremorne = URI.open(url_cremorne).read
+data_cremorne = JSON.parse(buffer_cremorne)["result"]["records"]
 
-data_barham.each do |loo|
-  Loo.create!(
+data_cremorne.each do |loo|
+  Loo.create(
     facility_type: loo["FacilityType"],
     name: loo["Name"],
     address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
@@ -93,13 +93,13 @@ data_barham.each do |loo|
 end
 
 
-url_cockatoo = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=cockatoo&limit=20"
+url_south_yarra = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC&q=south%20yarra"
 
-buffer_cockatoo = URI.open(url_cockatoo).read
-data_cockatoo = JSON.parse(buffer_cockatoo)["result"]["records"]
+buffer_south_yarra = URI.open(url_south_yarra).read
+data_south_yarra = JSON.parse(buffer_south_yarra)["result"]["records"]
 
-data_cockatoo.each do |loo|
-  Loo.create!(
+data_south_yarra.each do |loo|
+  Loo.create(
     facility_type: loo["FacilityType"],
     name: loo["Name"],
     address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
@@ -115,7 +115,6 @@ data_cockatoo.each do |loo|
     user_id: User.first.id
   )
 end
-
 
 Loo.all.each do |loo|
   User.all.each do |user|

@@ -13,5 +13,10 @@ Rails.application.routes.draw do
       get :nearest_loo
     end
   end
+
+  namespace :user do
+    resource :location, only: :update
+  end
+
   get '/my_favorites', to: 'dashboard#my_favorites', as: :my_favorites
 end

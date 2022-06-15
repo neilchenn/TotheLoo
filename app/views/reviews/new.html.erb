@@ -1,3 +1,5 @@
+<%# Confetti effect script %>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 
 
  <%# // RATING CONTAINER - flex to be added later // %>
@@ -55,8 +57,10 @@
             <p data-display-range-value-target="rangeCounter"></p>
         </div>
         <div class="d-flex justify-content-center" style="width: 100%;">
+        <%# <% "this button should triggers confetti effect " %>
           <div class="main-button">
-        <%= f.button :submit, "Submit!", class: "btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
+        <%= f.button :submit, "Submit!", id: "confetti_button", class: "btn btn-3 btn btn-outline-primary btn-sm border-3 d-inline-block mx-auto w-100" %>
+        <%# <% ------------------------------------------- %>
           </div>
         </div>
       <% end %>

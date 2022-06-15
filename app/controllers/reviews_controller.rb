@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.loo_id = @loo.id
     if @review.save
-      redirect_to loo_path(@loo)
+      redirect_to loos_path
     else
       render loo_path(@loo)
     end

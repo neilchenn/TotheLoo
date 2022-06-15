@@ -38,6 +38,7 @@ initSweetalert('#sweet-alert-demo', {
   text: "This loo will be permanently deleted from your favorites",
   icon: "warning"
 }, (value) => {
+  console.log("clicked");
   if (value) {
     const link = document.querySelector('#delete-link');
     link.click();

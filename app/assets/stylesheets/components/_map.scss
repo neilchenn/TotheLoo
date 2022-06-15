@@ -11,13 +11,15 @@
   display: none;
 }
 
+.mapbox-directions-route-summary {
+  background-color: #4e5052;
+}
+
 .mapboxgl-ctrl-top-left {
   position: fixed;
   left: 27px;
   top: 10px;
 }
-
-
 
 .mapboxgl-ctrl-bottom-right {
   position: fixed;
@@ -25,7 +27,14 @@
   right: 0px;
 }
 
-
 .mapboxgl-compact {
   display: none;
+}
+
+.directions-icon-depart {
+  background-color: $info;
+}
+
+.directions-icon-arrive {
+  background-color: $primary;
 }

@@ -50,9 +50,17 @@
     </h2>
     </div>
     <div>
-      <%= link_to unfavourite_loo_path(loo), method: :delete, remote: true do %>
-        <i class="fas fa-heart fs-3" style="padding-right: 10px;"></i>
+    <% if user_signed_in? %>
+      <% if current_user.favorited?(loo) %>
+        <%= link_to unfavourite_loo_path(loo), method: :delete, remote: true do %>
+          <i class="fas fa-heart fs-3" style="padding-right: 10px;"></i>
+        <% end %>
+      <% else %>
+          <%= link_to favourite_loo_path(loo), method: :post, remote: true do %>
+          <i class="far fa-heart fs-3"></i>
+        <% end %>
       <% end %>
+    <% end %>
     </div>
   </div>
 </div>

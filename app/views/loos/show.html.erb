@@ -145,3 +145,8 @@
     <%= link_to "To The LOO!", navigation_loo_path(@loo) , class: "btn btn-primary text-warning w-100" %>
   </div>
 </div>
+
+
+<% content_for :meta_title, "#{@loo.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @loo.address  %>
+<%# <% content_for :meta_image, cl_image_path(@offer.photo.path) %>

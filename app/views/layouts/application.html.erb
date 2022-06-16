@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+
+
+    <%= render 'shared/ios_pwa_links' %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <%#= favicon_link_tag %>
-    <link href="/assets/favicon-32x32.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/assets/icons/favicon-32x32.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <title>TotheLoo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>

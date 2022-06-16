@@ -49,6 +49,7 @@
   <%= link_to 'Pick Me', loo_path(loo), class: "btn btn-outline-primary btn-sm border-3", style: "width:150px" %>
     </h2>
     </div>
+
     <div>
     <% if user_signed_in? %>
       <% if current_user.favorited?(loo) %>
@@ -61,8 +62,10 @@
         <% end %>
       <% end %>
     <% end %>
-    <button id="sweet-alert-demo"><i class="fas fa-heart fs-3 text-primary" style="padding-right: 10px;"></i></button>
-    <%= link_to "", unfavourite_loo_path(loo), method: :delete, id: "delete-link", class: "hidden", remote: true %>
+    <div <%= 'data-controller=sweetalert' if params[:action] == "my_favorites" %>>
+      <button id="sweet-alert-demo" data-action="click->sweetalert#popup"><i class="fas fa-heart fs-3 text-primary" style="padding-right: 10px;"></i></button>
+      <%= link_to "", unfavourite_loo_path(loo), method: :delete, id: "delete-link", class: "hidden", remote: true, data: { sweetalert_target: "link" } %>
+
     </div>
   </div>
 </div>

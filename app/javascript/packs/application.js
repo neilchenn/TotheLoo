@@ -30,17 +30,3 @@ document.addEventListener('turbolinks:load', (event) => {
   initHideLoadingScreen(event);
   initConfetti();
 });
-
-import { initSweetalert } from '../components/init_sweetalert';
-
-initSweetalert('#sweet-alert-demo', {
-  title: "Are you sure?",
-  text: "This loo will be permanently deleted from your favorites",
-  icon: "warning"
-}, (value) => {
-  console.log("clicked");
-  if (value) {
-    const link = document.querySelector('#delete-link');
-    link.click();
-  }
-});

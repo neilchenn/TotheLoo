@@ -1,9 +1,8 @@
 <div class="mb-3 border border-info border border-3 border border p-3 ", style="border-radius: 15px">
-    <h2 style="margin-bottom: 0">
-      <%= loo.name %>
-    </h2>
+  <h2 style="margin-bottom: 0">
+    <%= loo.name %>
+  </h2>
   <strong><%= loo.address %></strong>
-
   <p style="margin-top: 17px">
     <strong>Facility Type:</strong>
     <%= loo.facility_type %>
@@ -38,34 +37,27 @@
     <i class="fas fa-restroom ms-1"></i>
     <% end %>
   <p>
-
-
   </p>
   <p> <i class="fas fa-star " ></i>
-  <%= loo.average_star_rating %></p>
-
+  <%= loo.average_star_rating %>
+  </p>
   <div class="d-flex justify-content-between align-items-center">
     <div>
-  <%= link_to 'Pick Me', loo_path(loo), class: "btn btn-outline-primary btn-sm border-3", style: "width:150px" %>
-    </h2>
+      <%= link_to 'Pick Me', loo_path(loo), class: "btn btn-outline-primary btn-sm border-3", style: "width:150px" %>
     </div>
-
     <div>
-    <% if user_signed_in? %>
-      <% if current_user.favorited?(loo) %>
-        <%= link_to unfavourite_loo_path(loo), method: :delete, remote: true do %>
-          <i class="fas fa-heart fs-3" style="padding-right: 10px;"></i>
-        <% end %>
-      <% else %>
+      <% if user_signed_in? %>
+        <% if current_user.favorited?(loo) %>
+          <div <%= 'data-controller=sweetalert' if params[:action] == "my_favorites" %>>
+            <button id="sweet-alert-demo" data-action="click->sweetalert#popup"><i class="fas fa-heart fs-3 text-primary"></i></button>
+            <%= link_to "", unfavourite_loo_path(loo), method: :delete, id: "delete-link", class: "hidden", remote: true, data: { sweetalert_target: "link" } %>
+          </div>
+        <% else %>
           <%= link_to favourite_loo_path(loo), method: :post, remote: true do %>
-          <i class="far fa-heart fs-3"></i>
+            <i class="far fa-heart fs-3"></i>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-    <div <%= 'data-controller=sweetalert' if params[:action] == "my_favorites" %>>
-      <button id="sweet-alert-demo" data-action="click->sweetalert#popup"><i class="fas fa-heart fs-3 text-primary" style="padding-right: 10px;"></i></button>
-      <%= link_to "", unfavourite_loo_path(loo), method: :delete, id: "delete-link", class: "hidden", remote: true, data: { sweetalert_target: "link" } %>
-
     </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ export default class extends Controller {
   popup() {
     const options = {
       title: "Are you sure?",
-      text: "This loo will be permanently deleted from your favorites",
+      text: "This loo will be permanently deleted from your favourites",
       icon: "warning"
     }
 

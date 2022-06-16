@@ -5,10 +5,15 @@
 .mapboxgl-popup-content {
   text-align: left;
   font-family: $body-font;
+  border-radius: 15px;
 }
 
 .mapbox-directions-instructions {
   display: none;
+}
+
+.mapbox-directions-route-summary {
+  background-color: #4e5052;
 }
 
 .mapboxgl-ctrl-top-left {
@@ -17,15 +22,20 @@
   top: 10px;
 }
 
-
-
 .mapboxgl-ctrl-bottom-right {
   position: fixed;
   bottom: 27px;
   right: 0px;
 }
 
-
 .mapboxgl-compact {
   display: none;
+}
+
+.directions-icon-depart {
+  background-color: $info;
+}
+
+.directions-icon-arrive {
+  background-color: $primary;
 }

@@ -55,8 +55,6 @@
 <%# Mapbox map display %>
 <div style="width: 100vw; height: 100vh; position: relative;">
   <%# controls %>
-
-
   <%# content %>
   <div class="tab-content" id="pills-tabContent" style="height: 100%">
     <div class="tab-pane fade show active" id="pills-mapview" role="tabpanel" aria-labelledby="pills-mapview-tab" style="height: 100%">
@@ -70,11 +68,9 @@
       <div class="d-flex justify-content-center" style="width: 100%;">
         <div class="main-button">
           <%= link_to "Find a Loo", nearest_loo_loos_path, class: "btn btn-primary text-warning w-100 fs-2", data: {controller: "find-nearest-loo"} %>
-          </div>
         </div>
+      </div>
     </div>
-
-
     <div class="tab-pane fade" id="pills-listview" role="tabpanel" aria-labelledby="pills-listview-tab">
       <br>
       <br>
@@ -85,10 +81,7 @@
         <% @loos.each do |loo| %>
           <%= render 'loo', loo: loo %>
         <% end %>
-
-         </div>
+      </div>
     </div>
-
-
   </div>
 </div>

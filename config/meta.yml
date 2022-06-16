@@ -1,5 +1,7 @@
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+
+meta_product_name: "ToTheLoo"
+meta_title: "ToTheLoo - Finding the closest toilet when doodie calls"
+meta_description: "When nature calls, let us help you find the nearest loo around you."
+meta_image: "Background.png" # should exist in `app/assets/images/`
+
 twitter_account: "@product_twitter_account"   # required for Twitter Cards

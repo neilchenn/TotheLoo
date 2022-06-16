@@ -30,11 +30,3 @@ document.addEventListener('turbolinks:load', (event) => {
   initHideLoadingScreen(event);
   initConfetti();
 });
-
-import { initSweetalert } from '../components/init_sweetalert';
-
-initSweetalert('#sweet-alert-demo', {
-  title: "Your Loo has been added!",
-  text: "Until wee meet again..totheLoo",
-  icon: "success"
-});

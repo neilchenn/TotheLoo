@@ -128,3 +128,118 @@ Loo.all.each do |loo|
               star_rating: rand(0..9))
   end
 end
+
+url_sydney = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=sydney"
+
+buffer_sydney = URI.open(url_sydney).read
+data_sydney = JSON.parse(buffer_sydney)["result"]["records"]
+
+data_sydney.each do |loo|
+  Loo.create(
+    facility_type: loo["FacilityType"],
+    name: loo["Name"],
+    address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
+    latitude: loo["Latitude"],
+    longitude: loo["Longitude"],
+    parking: loo["Parking"],
+    accessible: loo["Accessible"],
+    baby_change: loo["BabyChange"],
+    male: loo["Male"],
+    female: loo["Female"],
+    unisex: loo["Unisex"],
+    opening_hours: loo["OpeningHours"],
+    user_id: User.first.id
+  )
+end
+
+url_brisbane = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=brisbane"
+
+buffer_brisbane = URI.open(url_brisbane).read
+data_brisbane = JSON.parse(buffer_brisbane)["result"]["records"]
+
+data_brisbane.each do |loo|
+  Loo.create(
+    facility_type: loo["FacilityType"],
+    name: loo["Name"],
+    address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
+    latitude: loo["Latitude"],
+    longitude: loo["Longitude"],
+    parking: loo["Parking"],
+    accessible: loo["Accessible"],
+    baby_change: loo["BabyChange"],
+    male: loo["Male"],
+    female: loo["Female"],
+    unisex: loo["Unisex"],
+    opening_hours: loo["OpeningHours"],
+    user_id: User.first.id
+  )
+end
+
+url_perth = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=perth"
+
+buffer_perth = URI.open(url_perth).read
+data_perth = JSON.parse(buffer_perth)["result"]["records"]
+
+data_perth.each do |loo|
+  Loo.create(
+    facility_type: loo["FacilityType"],
+    name: loo["Name"],
+    address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
+    latitude: loo["Latitude"],
+    longitude: loo["Longitude"],
+    parking: loo["Parking"],
+    accessible: loo["Accessible"],
+    baby_change: loo["BabyChange"],
+    male: loo["Male"],
+    female: loo["Female"],
+    unisex: loo["Unisex"],
+    opening_hours: loo["OpeningHours"],
+    user_id: User.first.id
+  )
+end
+
+url_canberra = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=canberra"
+
+buffer_canberra = URI.open(url_canberra).read
+data_canberra = JSON.parse(buffer_canberra)["result"]["records"]
+
+data_canberra.each do |loo|
+  Loo.create(
+    facility_type: loo["FacilityType"],
+    name: loo["Name"],
+    address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
+    latitude: loo["Latitude"],
+    longitude: loo["Longitude"],
+    parking: loo["Parking"],
+    accessible: loo["Accessible"],
+    baby_change: loo["BabyChange"],
+    male: loo["Male"],
+    female: loo["Female"],
+    unisex: loo["Unisex"],
+    opening_hours: loo["OpeningHours"],
+    user_id: User.first.id
+  )
+end
+
+url_adelaide = "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=adelaide"
+
+buffer_adelaide = URI.open(url_adelaide).read
+data_adelaide = JSON.parse(buffer_adelaide)["result"]["records"]
+
+data_adelaide.each do |loo|
+  Loo.create(
+    facility_type: loo["FacilityType"],
+    name: loo["Name"],
+    address: loo["Address1"] + " " + loo["Town"] + " "+ loo["State"],
+    latitude: loo["Latitude"],
+    longitude: loo["Longitude"],
+    parking: loo["Parking"],
+    accessible: loo["Accessible"],
+    baby_change: loo["BabyChange"],
+    male: loo["Male"],
+    female: loo["Female"],
+    unisex: loo["Unisex"],
+    opening_hours: loo["OpeningHours"],
+    user_id: User.first.id
+  )
+end

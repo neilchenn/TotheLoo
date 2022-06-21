@@ -30,10 +30,8 @@ class LoosController < ApplicationController
     @loo = Loo.new(loo_params)
     @loo.user_id = current_user.id
     if @loo.save
-     
       redirect_to root_path
     else
-
       render :new
     end
   end

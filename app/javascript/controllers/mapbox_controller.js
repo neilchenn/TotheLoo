@@ -58,7 +58,7 @@ export default class extends Controller {
       // this.map.Geolocation.getCurrentPosition();
 
     this.#addMarkersToMap()
-    // this.#fitMapToMarkers()
+    this.#fitMapToMarkers()
   }
 
   #addMarkersToMap() {
